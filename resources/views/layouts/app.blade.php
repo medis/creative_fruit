@@ -24,7 +24,7 @@
         @if (Auth::check())
             <div class="admin-menu">
                 <ul>
-                    <li><a href='/work/create' title="Create new work">Create new work</a></li>
+                    <li><a href='/work/new' title="Create new work">Create new work</a></li>
                 </ul>
             </div>
         @endif
@@ -45,13 +45,11 @@
             @endif
             <div class="page-info">
                 <h1>@yield('title')</h1>
-                @yield('title-meta')
             </div>
             <div class="content">
                 @yield('content')
             </div>
         </div>
-        <p>Hello world! This is HTML5 Boilerplate.</p>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

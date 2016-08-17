@@ -32,16 +32,16 @@ class AdminController extends Controller
         $work->title = $request->get('title');
         $work->body = $request->get('body');
         $work->slug = str_slug($work->title);
-        $work->author_id = $request->user()->id();
+        $work->author_id = $request->user()->id;
         if ($request->has('save')) {
             $work->active = 0;
             $message = 'Post saved successfully';
-            $landing = 'work/'.$post->slug.'/edit';
+            $landing = 'work/'.$work->slug.'/edit';
         }
         else {
             $work->active = 1;
             $message = 'Post published successfully';
-            $landing = $post->slug;
+            $landing = $work->slug;
         }
         $work->save();
         return redirect($landing)->withMessage($message);
@@ -65,7 +65,7 @@ class AdminController extends Controller
             $slug = str_slug($title);
             $duplicate = Works::where('slug', $slug)->first();
             if ($duplicate) {
-                if ($duplicate->id() != $work_id) {
+                if ($duplicate->id != $work_id) {
                     return redirect('work/'.$post->slug.'/edit')->withErrors('Title already exists.')->withInput();
                 }
                 else {
@@ -77,12 +77,12 @@ class AdminController extends Controller
             if ($request->has('save')) {
                 $work->active = 0;
                 $message = 'Work saved successfully';
-                $landing = 'work/'.$post->slug.'/edit';
+                $landing = 'work/'.$work->slug.'/edit';
             }
             else {
                 $work->active = 1;
                 $message = 'Work updated successfully';
-                $landing = $post->slug;
+                $landing = $work->slug;
             }
             $work->save();
             return redirect($landing)->withMessage($message);

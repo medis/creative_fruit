@@ -10,7 +10,17 @@ class WorkController extends Controller
 {
     // Home page callback.
     public function index() {
-        $works = Works::where('active', 1)->orderBy('created_at', 'desc');
+        $works = Works::orderBy('created_at', 'desc')->get();
         return view('home', ['works' => $works]);
+    }
+
+    // Show work page.
+    public function show($slug) {
+        $work = Works::where('slug', $slug)->first();
+        if (!$work) {
+            return redirect('/')->withErrors('Requested page not found');
+        }
+
+        return view('works.show')->with('work', $work);
     }
 }
