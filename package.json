@@ -5,8 +5,11 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "bootstrap-sass": "^3.0.0",
+    "breakpoint-sass": "^2.7.0",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "laravel-elixir": "^5.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "susy": "^2.2.12"
   }
 }
