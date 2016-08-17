@@ -12,7 +12,7 @@
             <input required="required" placeholder="Enter title here" type="text" name="title" class="form-item-title" value="@if(!old('title')){{$work->title}}@endif{{ old('title') }}"/>
         </div>
         <div class="form-item">
-            <textarea name='body' class="form-control">@if (!old('body')){!! $work->body !!}@endif{!! old('body') !!}</textarea>
+            <textarea name='body' class="form-item-body ckeditor">@if (!old('body')){!! $work->body !!}@endif{!! old('body') !!}</textarea>
         </div>
         @if ($work->active == '1')
             <input type="submit" name='publish' class="button button-update" value="Update" />
@@ -22,4 +22,8 @@
         <input type="submit" name='save' class="button button-save" value = "Save As Draft" />
         <a href="{{  url('/work/delete/'.$work->id.'?_token='.csrf_token()) }}" class="button button-delete">Delete</a>
     </form>
+@endsection
+
+@section('assets')
+    <script src="//cdn.ckeditor.com/4.5.10/full/ckeditor.js"></script>
 @endsection

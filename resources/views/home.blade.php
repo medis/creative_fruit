@@ -5,8 +5,8 @@
         <p>There are no works.</p>
     @else
         <div>
-            @foreach( $works as $work )
-                <div class="list-group">
+            @foreach ($works as $work)
+                <div>
                     <h3><a href="{{ url('/'.$work->slug) }}">{{ $work->title }}</a>
                     @if(!Auth::guest())
                         @if($work->active == '1')
@@ -21,7 +21,6 @@
                     </div>
                 </div>
             @endforeach
-            {!! $works->render() !!}
         </div>
     @endif
 @endsection
