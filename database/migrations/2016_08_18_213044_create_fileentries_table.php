@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Works extends Migration
+class CreateFileentriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class Works extends Migration
      */
     public function up()
     {
-        Schema::create('works', function(Blueprint $table) {
+        Schema::create('fileentries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('author_id')->unsigned()->default(0);
-            $table->string('title')->unique();
-            $table->text('body');
-            $table->string('slug')->unique();
-            $table->boolean('active');
+            $table->integer('work_id')->unsigned()->default(0);
+            $table->string('filename');
+            $table->string('mime');
+            $table->string('original_filename');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class Works extends Migration
      */
     public function down()
     {
-        Schema::drop('works');
+        Schema::drop('fileentries');
     }
 }

@@ -14,9 +14,9 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
   // Compile CSS.
   mix.sass('app.scss');
-  mix.scripts([]);
+  mix.scripts(['dropzone.js']);
   mix.version([
     'css/app.css',
-    'js/main.js',
+    'js/all.js',
   ]);
 });

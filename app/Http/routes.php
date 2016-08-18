@@ -33,3 +33,8 @@ Route::get('/work/{slug}/edit','AdminController@edit');
 Route::post('/work/{slug}/edit','AdminController@update');
 // Delete work
 Route::get('/work/delete/{id}','AdminController@destroy');
+
+// Get file.
+Route::get('fileentry/get/{filename}', [
+	'as' => 'getentry', 'uses' => 'FileEntryController@get']);
+Route::post('fileentry/upload', ['as' => 'upload-post', 'uses' =>'FileEntryController@store']);

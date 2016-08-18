@@ -8,6 +8,11 @@ class Works extends Model
 {
     // returns the instance of the user who is author of that post
     public function author() {
-      return $this->belongsTo('App\User','author_id');
+        return $this->belongsTo('App\User','author_id');
+    }
+
+    // Files relationship.
+    public function files() {
+        return $this->hasMany('App\Fileentry');
     }
 }
