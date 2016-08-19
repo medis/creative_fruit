@@ -38,3 +38,4 @@ Route::get('/work/delete/{id}','AdminController@destroy');
 Route::get('fileentry/get/{filename}', [
 	'as' => 'getentry', 'uses' => 'FileEntryController@get']);
 Route::post('fileentry/upload', ['as' => 'upload-post', 'uses' =>'FileEntryController@store']);
+Route::post('fileentry/delete', 'FileEntryController@destroy');

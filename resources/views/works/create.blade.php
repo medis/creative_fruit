@@ -14,7 +14,7 @@
             <textarea name='body' class="form-item-body ckeditor">{{ old('body') }}</textarea>
         </div>
         <div class="form-item">
-            <div class="dropzone" id="dropzoneFileUpload"></div>
+            <div class="dropzone" id="upload-widget"></div>
         </div>
         <input type="submit" name='publish' class="button button-submit" value = "Publish"/>
         <input type="submit" name='save' class="button button-draft" value="Save Draft" />

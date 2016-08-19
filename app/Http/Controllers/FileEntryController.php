@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use Validator;
 use Response;
+use App\Fileentry;
 
 class FileEntryController extends Controller
 {
@@ -29,14 +30,29 @@ class FileEntryController extends Controller
         if ($validation->fails()) {
             return Response::make($validation->errors->first(), 400);
         }
-        $destinationPath = 'uploads'; // upload path
+        $destinationPath = 'storage'; // upload path
         $extension = Input::file('file')->getClientOriginalExtension(); // getting file extension
-        $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
+        $fileName = Input::file('file')->getFilename() . '_' . time() . '.' . $extension; // renameing image
         $upload_success = Input::file('file')->move($destinationPath, $fileName); // uploading file to given path
+        $file_entry = new Fileentry();
+        $file_entry->filename = $fileName;
+        $file_entry->mime = Input::file('file')->getClientMimeType();
+        $file_entry->original_filename = Input::file('file')->getFilename() . '.' . $extension;
+        $file_entry->save();
         if ($upload_success) {
-            return Response::json('success', 200);
+            return Response::json(['status' => 'success', 'id' => $file_entry->id], 200);
         } else {
-            return Response::json('error', 400);
+            return Response::json(['status' => 'error'], 400);
         }
+    }
+
+    // Delete image.
+    public function destroy() {
+        $id = Input::get('id');
+        if (!empty($id)) {
+            Fileentry::destroy($id);
+            return Response::json('success', 200);
+        }
+        return Response::json('error', 400);
     }
 }
