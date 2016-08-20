@@ -49,9 +49,9 @@ class AdminController extends Controller
         $files = $request->get('files');
         if (!empty($files)) {
             $file_entries = Fileentry::whereIn('id', explode(',', $files))->get();
-            foreach ($file_entries as $file_entrie) {
-                $file_entrie->works_id = $work->id;
-                $file_entrie->save();
+            foreach ($file_entries as $file_entry) {
+                $file_entry->works_id = $work->id;
+                $file_entry->save();
             }
         }
         return redirect($landing)->withMessage($message);
@@ -62,12 +62,12 @@ class AdminController extends Controller
         $work = Works::where('slug', $slug)->first();
         $files = [];
         $file_entries = $work->files;
-        foreach ($file_entries as $file_entrie) {
+        foreach ($file_entries as $file_entry) {
             $files[] = [
-                'id' => $file_entrie->id,
-                'filename' => $file_entrie->filename,
-                'url' => '/storage/' . $file_entrie->filename,
-                'size' => $file_entrie->size
+                'id' => $file_entry->id,
+                'filename' => $file_entry->filename,
+                'url' => '/storage/' . $file_entry->filename,
+                'size' => $file_entry->size
             ];
         }
         if ($work) {
@@ -109,9 +109,9 @@ class AdminController extends Controller
             $files = $request->get('files');
             if (!empty($files)) {
                 $file_entries = Fileentry::whereIn('id', explode(',', $files))->where('works_id', 0)->get();
-                foreach ($file_entries as $file_entrie) {
-                    $file_entrie->works_id = $work->id;
-                    $file_entrie->save();
+                foreach ($file_entries as $file_entry) {
+                    $file_entry->works_id = $work->id;
+                    $file_entry->save();
                 }
             }
 
