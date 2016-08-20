@@ -13,10 +13,9 @@
 
 $susy: (
   columns: 12,
-  container: 1200px,
-  gutters: 1/4, // The size of a gutter in relation to a single column
-  global-box-sizing: border-box,
-  debug: (image: show)
+  math: fluid,
+  gutters: 1/4,
+  global-box-sizing: border-box
 );
 
 /**

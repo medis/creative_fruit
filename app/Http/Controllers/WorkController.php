@@ -11,7 +11,7 @@ class WorkController extends Controller
 {
     // Home page callback.
     public function index() {
-        $works = Works::orderBy('created_at', 'desc')->get();
+        $works = Works::where('active', 1)->orderBy('created_at', 'desc')->get();
         return view('home', ['works' => $works]);
     }
 

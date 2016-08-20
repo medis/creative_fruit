@@ -22,6 +22,13 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
+    // Show all works.
+    public function index() {
+        die('a');
+        $works = Works::orderBy('created', 'desc')->get();
+        return view('works.administer')->with('works', $works);
+    }
+
     // Create work form.
     public function create() {
         return view('works.create');

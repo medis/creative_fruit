@@ -252,6 +252,21 @@ td {
     td {
       padding: 0.4375em 0.875em; } }
 
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal; }
+
+a {
+  color: #666;
+  text-decoration: underline; }
+  a:focus, a:hover {
+    text-decoration: none;
+    color: #c21924; }
+
 /**
  * Contains each self-contained component in its own .scss partial
  */
@@ -264,12 +279,47 @@ td {
 /**
  * Variables File.
  */
-/**
- * Breakpoints for responsive design.
- */
+/* Breakpoints */
 /**
  * Contains styling for larger layout components; e.g. nav, header, footer, etc.
  */
+header {
+  width: 100%;
+  overflow: hidden; }
+  header a.logo {
+    width: 48.275862069%;
+    float: left; }
+    @media (min-width: 48em) {
+      header a.logo {
+        width: 23.7288135593%;
+        float: left;
+        margin-right: 1.6949152542%; } }
+    header a.logo img {
+      width: 100%;
+      height: auto; }
+  header nav {
+    width: 74.5762711864%;
+    float: right;
+    margin-right: 0; }
+    header nav ul {
+      margin: 0;
+      padding: 45px 15.2542372881% 0 0;
+      list-style: none;
+      text-align: right; }
+      header nav ul li {
+        display: inline;
+        padding-left: 25px; }
+        header nav ul li:first-child {
+          padding-left: 0; }
+        header nav ul li a {
+          border-bottom: 2px solid transparent;
+          text-decoration: none;
+          color: #575656;
+          padding: 0 5px; }
+          header nav ul li a:active, header nav ul li a:focus, header nav ul li a:hover {
+            color: #575656;
+            border-bottom-color: #c21924; }
+
 /**
  * Contains styling for different themes.
  */

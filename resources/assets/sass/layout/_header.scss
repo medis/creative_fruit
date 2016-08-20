@@ -1,0 +1,40 @@
+header {
+  width: 100%;
+  overflow: hidden;
+  a.logo {
+    @include span(3 of 6 no-gutters);
+    @include breakpoint($tablet) {
+      @include span(3 of 12);
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  nav {
+    ul {
+      margin: 0;
+      padding: 45px span(2) 0 0;
+      list-style: none;
+      text-align: right;
+      li {
+        display: inline;
+        padding-left: 25px;
+        &:first-child {
+          padding-left: 0;
+        }
+        a {
+          border-bottom: 2px solid transparent;
+          text-decoration: none;
+          color: #575656;
+          padding: 0 5px;
+          &:active, &:focus, &:hover {
+            color: #575656;
+            border-bottom-color: #c21924;
+          }
+        }
+      }
+    }
+    @include span(9 of 12 last);
+  }
+}

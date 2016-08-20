@@ -1,6 +1,10 @@
-Dropzone.autoDiscover = false;
-
+if (typeof Dropzone !== 'undefined') {
+    Dropzone.autoDiscover = false;
+}
 $(function() {
+    if (typeof Dropzone == 'undefined') {
+        return false;
+    }
     var uploaded_files = [];
     var baseUrl = "/fileentry";
     var token = $('.token').val();

@@ -12,10 +12,10 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-	Route::get('/', 'WorkController@index');
-	Route::get('/about', 'PageController@about');
-	Route::get('/contact', 'PageController@contact');
-	Route::get('/login', 'PageController@login');
+	Route::get('/', ['as' => 'works', 'uses' => 'WorkController@index']);
+	Route::get('/about', ['as' => 'about', 'uses' => 'PageController@about']);
+	Route::get('/contact', ['as' => 'contact', 'uses' => 'PageController@contact']);
+	Route::get('/login', ['as' => 'login', 'uses' => 'PageController@login']);
 
 	// display single post
 	Route::get('/{slug}',['as' => 'work', 'uses' => 'WorkController@show'])->where('slug', '[A-Za-z0-9-_]+');
@@ -33,6 +33,8 @@ Route::get('/work/{slug}/edit','AdminController@edit');
 Route::post('/work/{slug}/edit','AdminController@update');
 // Delete work
 Route::get('/work/delete/{id}','AdminController@destroy');
+// Show all works.
+Route::get('/administer-works', ['as' => 'admin_works', 'uses' => 'AdminController@index']);
 
 // Get file.
 Route::get('fileentry/get/{filename}', [

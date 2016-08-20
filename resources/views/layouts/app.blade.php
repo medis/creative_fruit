@@ -25,9 +25,22 @@
             <div class="admin-menu">
                 <ul>
                     <li><a href='/work/new' title="Create new work">Create new work</a></li>
+                    <li><a href="{{ route('admin_works') }}" title="Administer all works">Administer works</a></li>
                 </ul>
             </div>
         @endif
+        <header>
+            <a href="/" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
+            <nav>
+                <h2 class="visually-hidden">Main navigation</h2>
+                <ul>
+                    <li><a href="{{ route('works') }}">WORK</a></li>
+                    <li><a href="{{ route('about') }}">ABOUT</a></li>
+                    <li><a href="#">VIDEOS</a></li>
+                    <li><a href="{{ route('contact') }}">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
         <div class="container">
             @if (Session::has('message'))
                 <div class="flash alert-info">
