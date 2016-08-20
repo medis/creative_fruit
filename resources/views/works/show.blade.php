@@ -4,7 +4,7 @@
     @if ($work)
         {{ $work->title }}
         @if (!Auth::guest())
-            <button class="button button-edit"><a href="{{ url('/work/'.$work->slug.'/edit') }}">Edit Work</a></button>
+            <a href="{{ url('/work/'.$work->slug.'/edit') }}">Edit Work</a>
         @endif
     @else
         <h2>Page does not exist</h2>
@@ -17,5 +17,9 @@
     <div>
         {!! $work->body !!}
     </div>
+
+    @foreach ($work->files as $file)
+        <img src="/storage/{{ $file->filename }}" />
+    @endforeach
 @endif
 @endsection

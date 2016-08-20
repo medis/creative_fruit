@@ -16,6 +16,9 @@
         <div class="form-item">
             <div class="dropzone" id="upload-widget"></div>
         </div>
+        <div class="form-item-hidden">
+            <input type="text" name="files" />
+        </div>
         <input type="submit" name='publish' class="button button-submit" value = "Publish"/>
         <input type="submit" name='save' class="button button-draft" value="Save Draft" />
     </form>

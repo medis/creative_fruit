@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\User;
 use Redirect;
 use App\Works;
+use App\Fileentry;
 use Illuminate\Http\Request;
 use App\Http\Requests\WorkFormRequest;
 
@@ -44,14 +45,33 @@ class AdminController extends Controller
             $landing = $work->slug;
         }
         $work->save();
+
+        $files = $request->get('files');
+        if (!empty($files)) {
+            $file_entries = Fileentry::whereIn('id', explode(',', $files))->get();
+            foreach ($file_entries as $file_entrie) {
+                $file_entrie->works_id = $work->id;
+                $file_entrie->save();
+            }
+        }
         return redirect($landing)->withMessage($message);
     }
 
     // Edit work.
     public function edit(Request $request, $slug) {
         $work = Works::where('slug', $slug)->first();
+        $files = [];
+        $file_entries = $work->files;
+        foreach ($file_entries as $file_entrie) {
+            $files[] = [
+                'id' => $file_entrie->id,
+                'filename' => $file_entrie->filename,
+                'url' => '/storage/' . $file_entrie->filename,
+                'size' => $file_entrie->size
+            ];
+        }
         if ($work) {
-            return view('works.edit')->with('work', $work);
+            return view('works.edit', compact('files'))->with('work', $work);
         }
         return redirect('/')->withErrors('Error loading work data.');
     }
@@ -85,6 +105,16 @@ class AdminController extends Controller
                 $landing = $work->slug;
             }
             $work->save();
+
+            $files = $request->get('files');
+            if (!empty($files)) {
+                $file_entries = Fileentry::whereIn('id', explode(',', $files))->where('works_id', 0)->get();
+                foreach ($file_entries as $file_entrie) {
+                    $file_entrie->works_id = $work->id;
+                    $file_entrie->save();
+                }
+            }
+
             return redirect($landing)->withMessage($message);
         }
         else {
