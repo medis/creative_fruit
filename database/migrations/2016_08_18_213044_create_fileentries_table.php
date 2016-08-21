@@ -19,6 +19,7 @@ class CreateFileentriesTable extends Migration
             $table->string('mime');
             $table->string('size');
             $table->string('original_filename');
+            $table->integer('weight')->unsigned()->default(0);
             $table->timestamps();
         });
     }

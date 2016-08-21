@@ -30,7 +30,8 @@ class AdminController extends Controller
 
     // Create work form.
     public function create() {
-        return view('works.create');
+        $files = [];
+        return view('works.create', compact('files'));
     }
 
     // Save work.
@@ -53,10 +54,12 @@ class AdminController extends Controller
         $work->save();
 
         $files = $request->get('files');
+        $files_sort = explode(',', $files);
         if (!empty($files)) {
             $file_entries = Fileentry::whereIn('id', explode(',', $files))->get();
             foreach ($file_entries as $file_entry) {
                 $file_entry->works_id = $work->id;
+                $file_entry->weight = array_search($file_entry->id, $files_sort);
                 $file_entry->save();
             }
         }
@@ -113,10 +116,12 @@ class AdminController extends Controller
             $work->save();
 
             $files = $request->get('files');
+            $files_sort = explode(',', $files);
             if (!empty($files)) {
-                $file_entries = Fileentry::whereIn('id', explode(',', $files))->where('works_id', 0)->get();
+                $file_entries = Fileentry::whereIn('id', explode(',', $files))->get();
                 foreach ($file_entries as $file_entry) {
                     $file_entry->works_id = $work->id;
+                    $file_entry->weight = array_search($file_entry->id, $files_sort);
                     $file_entry->save();
                 }
             }

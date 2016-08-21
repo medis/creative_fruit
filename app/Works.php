@@ -13,6 +13,6 @@ class Works extends Model
 
     // Files relationship.
     public function files() {
-        return $this->hasMany('App\Fileentry');
+        return $this->hasMany('App\Fileentry')->orderBy('weight');
     }
 }

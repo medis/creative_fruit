@@ -39,6 +39,7 @@ $(function() {
                 id: response.id,
                 name: file.name
             });
+            //$('.sortable_img li:last-of-type').data('file', file);
             genereateFilesList();
         }
     });
@@ -70,11 +71,31 @@ $(function() {
         }
     }
 
+    $(document).ready(function() {
+      $("#upload-widget").sortable({
+        items:'.dz-preview',
+        cursor: 'move',
+        opacity: 0.5,
+        containment: "parent",
+        distance: 20,
+        tolerance: 'pointer',
+        update: function(e, ui){
+          genereateFilesList();
+        }
+      });
+    });
+
     function genereateFilesList() {
         var list = [];
-        for (var i=0; i < uploaded_files.length; i++) {
-            list.push(uploaded_files[i].id);
-        }
+        $('#upload-widget .dz-preview').each(function() {
+            var filename = $(this).find('.dz-filename').text();
+            for (var i=0; i < uploaded_files.length; i++) {
+                if (uploaded_files[i].name == filename) {
+                    list.push(uploaded_files[i].id);
+                    break;
+                }
+            }
+        });
         $('input[name="files"]').val(list.join());
     }
 })

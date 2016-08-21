@@ -1,3 +1,7 @@
+<script>
+var files = {!! json_encode($files) !!};
+</script>
+
 @extends('layouts.app')
 
 @section('title')
@@ -26,6 +30,7 @@
 
 @section('assets')
     <script src="//cdn.ckeditor.com/4.5.10/full/ckeditor.js"></script>
+    <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script src="/js/vendor/dropzone.js"></script>
     <link href="/css/vendor/dropzone.css" rel="stylesheet"></link>
 @endsection
