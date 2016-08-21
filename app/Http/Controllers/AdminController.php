@@ -24,8 +24,7 @@ class AdminController extends Controller
 
     // Show all works.
     public function index() {
-        die('a');
-        $works = Works::orderBy('created', 'desc')->get();
+        $works = Works::orderBy('created_at', 'desc')->get();
         return view('works.administer')->with('works', $works);
     }
 

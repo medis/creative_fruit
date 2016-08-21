@@ -34,7 +34,7 @@ Route::post('/work/{slug}/edit','AdminController@update');
 // Delete work
 Route::get('/work/delete/{id}','AdminController@destroy');
 // Show all works.
-Route::get('/administer-works', ['as' => 'admin_works', 'uses' => 'AdminController@index']);
+Route::get('/admin/works', ['as' => 'admin_works', 'uses' => 'AdminController@index']);
 
 // Get file.
 Route::get('fileentry/get/{filename}', [

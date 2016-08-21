@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Works;
 use App\Fileentry;
+use Auth;
 
 class WorkController extends Controller
 {
@@ -18,7 +19,7 @@ class WorkController extends Controller
     // Show work page.
     public function show($slug) {
         $work = Works::where('slug', $slug)->first();
-        if (!$work) {
+        if (!$work || (!Auth::check() && !$work->active)) {
             return redirect('/')->withErrors('Requested page not found');
         }
 

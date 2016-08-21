@@ -270,6 +270,21 @@ a {
 /**
  * Contains each self-contained component in its own .scss partial
  */
+.admin-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: #7B7B7B;
+  border-bottom: 2px solid #4C4C4C; }
+  .admin-menu ul li {
+    display: inline-block;
+    font-size: 15px;
+    padding: 0 15px; }
+    .admin-menu ul li a {
+      color: #FFF; }
+      .admin-menu ul li a:focus, .admin-menu ul li a:hover {
+        color: #FFF; }
+
 /**
  * Contains page-specific styling, if necessary.
  */
