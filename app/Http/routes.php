@@ -41,3 +41,10 @@ Route::get('fileentry/get/{filename}', [
 	'as' => 'getentry', 'uses' => 'FileEntryController@get']);
 Route::post('fileentry/upload', ['as' => 'upload-post', 'uses' =>'FileEntryController@store']);
 Route::post('fileentry/delete', 'FileEntryController@destroy');
+
+Route::group(['middleware' => ['auth']], function () {
+	// Edit page.
+	Route::get('/edit/{title}', ['as' => 'page_edit', 'uses' => 'PageController@edit']);
+	// Update page.
+	Route::post('/edit/{title}', 'PageController@update');
+});

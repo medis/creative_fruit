@@ -58,6 +58,7 @@
             @endif
             <div class="page-info">
                 <h1>@yield('title')</h1>
+                <div class="title-meta">@yield('title_meta')</div>
             </div>
             <div class="content">
                 @yield('content')
