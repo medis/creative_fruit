@@ -1,7 +1,7 @@
 if (typeof Dropzone !== 'undefined') {
     Dropzone.autoDiscover = false;
 }
-$(function() {
+(function ($) {
     if (typeof Dropzone == 'undefined') {
         return false;
     }
@@ -98,6 +98,16 @@ $(function() {
         });
         $('input[name="files"]').val(list.join());
     }
-})
+})(jQuery);
+
+(function ($) {
+  if ($('.masonry').length) {
+    $('.masonry').masonry({
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      gutter: 10
+    });
+  }
+})(jQuery);
 
 //# sourceMappingURL=all.js.map

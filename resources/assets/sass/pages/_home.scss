@@ -1,0 +1,17 @@
+.work-wrapper {
+  padding: 0 2%;
+  overflow: hidden;
+  .grid-item {
+    @include span(6 of 6 no-gutter);
+    @include breakpoint($tablet) {
+      @include span(6 of 12 no-gutter);
+    }
+    @include breakpoint($desktop) {
+      @include span(3 of 12 no-gutter);
+    }
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

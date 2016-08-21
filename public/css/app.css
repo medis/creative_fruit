@@ -11,6 +11,13 @@
  * http://sass-guidelin.es/#the-7-1-pattern
  */
 /**
+  * Contains global mixins, functions, helper selectors, etc.
+  */
+/**
+ * Variables File.
+ */
+/* Breakpoints */
+/**
  * Contains 3rd-party styles, mixins, etc.
  */
 /**
@@ -267,6 +274,15 @@ a {
     text-decoration: none;
     color: #c21924; }
 
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
 /**
  * Contains each self-contained component in its own .scss partial
  */
@@ -288,13 +304,26 @@ a {
 /**
  * Contains page-specific styling, if necessary.
  */
-/**
- * Contains global mixins, functions, helper selectors, etc.
- */
-/**
- * Variables File.
- */
-/* Breakpoints */
+.work-wrapper {
+  padding: 0 2%;
+  overflow: hidden; }
+  .work-wrapper .grid-item {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+    @media (min-width: 48em) {
+      .work-wrapper .grid-item {
+        width: 49.1525423729%;
+        float: left; } }
+    @media (min-width: 64em) {
+      .work-wrapper .grid-item {
+        width: 23.7288135593%;
+        float: left; } }
+  .work-wrapper img {
+    width: 100%;
+    height: auto; }
+
 /**
  * Contains styling for larger layout components; e.g. nav, header, footer, etc.
  */

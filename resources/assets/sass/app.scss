@@ -23,6 +23,11 @@ $susy: (
  * http://sass-guidelin.es/#the-7-1-pattern
  */
 
+ /**
+  * Contains global mixins, functions, helper selectors, etc.
+  */
+ @import 'utils/module';
+ 
 /**
  * Contains 3rd-party styles, mixins, etc.
  */
@@ -42,11 +47,6 @@ $susy: (
  * Contains page-specific styling, if necessary.
  */
 @import 'pages/module';
-
-/**
- * Contains global mixins, functions, helper selectors, etc.
- */
-@import 'utils/module';
 
 /**
  * Contains styling for larger layout components; e.g. nav, header, footer, etc.
