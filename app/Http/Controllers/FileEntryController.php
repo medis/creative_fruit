@@ -44,7 +44,7 @@ class FileEntryController extends Controller
         $file_entry->filename = $fileName;
         $file_entry->size = $size;
         $file_entry->mime = $file->getClientMimeType();
-        $file_entry->original_filename = $file->getFilename() . '.' . $extension;
+        $file_entry->original_filename = $raw_filename . '.' . $extension;
         $file_entry->save();
         if ($upload_success) {
             return Response::json(['status' => 'success', 'id' => $file_entry->id], 200);
