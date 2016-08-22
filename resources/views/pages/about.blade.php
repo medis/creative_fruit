@@ -14,7 +14,10 @@
       <div class="author"> - Steve Jobs -</div>
     </div>
   </div>
+  <div class="clearfix"></div>
   <article class="inner-container">
+    <div class="about-icon"><img src="/images/about_icon.png" alt="" /></div>
+    <h3 class="biography"><span>Biography</span></h3>
     {!! $about->body !!}
   </article>
 @endsection

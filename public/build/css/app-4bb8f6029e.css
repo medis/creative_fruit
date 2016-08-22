@@ -295,6 +295,11 @@ a {
     .inner-container {
       margin: 0 10%; } }
 
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
 /**
  * Contains each self-contained component in its own .scss partial
  */
@@ -322,7 +327,9 @@ a {
   max-height: 386px;
   line-height: 0;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  border-bottom: 9px solid #dfdfdf;
+  margin-bottom: 70px; }
   .header img {
     width: 100%;
     height: auto; }
@@ -357,6 +364,42 @@ a {
   .work-wrapper img {
     width: 100%;
     height: auto; }
+
+.about-icon {
+  text-align: center; }
+
+h3.biography {
+  text-align: center;
+  overflow: hidden;
+  margin: 0; }
+  h3.biography span {
+    display: inline-block;
+    position: relative; }
+    h3.biography span:before, h3.biography span:after {
+      content: "";
+      position: absolute;
+      line-height: 31px;
+      border-bottom: 1px solid #cdcdcd;
+      top: 50%;
+      width: 600px; }
+    h3.biography span:before {
+      right: 100%;
+      margin-right: 50%; }
+      @media (min-width: 48em) {
+        h3.biography span:before {
+          margin-right: 100%; } }
+      @media (min-width: 64em) {
+        h3.biography span:before {
+          margin-right: 150%; } }
+    h3.biography span:after {
+      left: 100%;
+      margin-left: 50%; }
+      @media (min-width: 48em) {
+        h3.biography span:after {
+          margin-left: 100%; } }
+      @media (min-width: 64em) {
+        h3.biography span:after {
+          margin-left: 150%; } }
 
 /**
  * Contains styling for larger layout components; e.g. nav, header, footer, etc.

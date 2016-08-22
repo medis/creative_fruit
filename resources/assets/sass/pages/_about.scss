@@ -1,0 +1,40 @@
+.about-icon {
+  text-align: center;
+}
+h3.biography {
+  text-align: center;
+  overflow: hidden;
+  margin: 0;
+  span {
+    display: inline-block;
+    position: relative;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      line-height: 31px;
+      border-bottom: 1px solid #cdcdcd;
+      top: 50%;
+      width: 600px;
+    }
+    &:before {
+      right: 100%;
+      margin-right: 50%;
+      @include breakpoint($tablet) {
+        margin-right: 100%;
+      }
+      @include breakpoint($desktop) {
+        margin-right: 150%;
+      }
+    }
+    &:after {
+      left: 100%;
+      margin-left: 50%;
+      @include breakpoint($tablet) {
+        margin-left: 100%;
+      }
+      @include breakpoint($desktop) {
+        margin-left: 150%;
+      }
+    }
+  }
+}
