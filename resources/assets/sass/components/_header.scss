@@ -1,0 +1,22 @@
+.header {
+  @include span(12 of 12 no-gutter);
+  display: block;
+  max-height: 386px;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  .text {
+    position: absolute;
+    bottom: 7%;
+    color: #FFF;
+    line-height: 1;
+    left: 0;
+    h2 {
+      color: #FFF;
+    }
+  }
+}

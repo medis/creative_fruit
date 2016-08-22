@@ -23,3 +23,13 @@ a {
 .form-item-hidden {
   display: none;
 }
+
+.inner-container {
+  margin: 0 3%;
+  @include breakpoint($tablet) {
+    margin: 0 5%;
+  }
+  @include breakpoint($desktop) {
+    margin: 0 10%;
+  }
+}
