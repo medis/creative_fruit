@@ -29,40 +29,49 @@
                 </ul>
             </div>
         @endif
-        <header>
-            <a href="/" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
-            <nav>
-                <h2 class="visually-hidden">Main navigation</h2>
-                <ul>
-                    <li><a href="{{ route('works') }}">WORK</a></li>
-                    <li><a href="{{ route('about') }}">ABOUT</a></li>
-                    <li><a href="#">VIDEOS</a></li>
-                    <li><a href="{{ route('contact') }}">CONTACT</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="container">
-            @if (Session::has('message'))
-                <div class="flash alert-info">
-                    <p class="panel-body">{{ Session::get('message') }}</p>
+        <div class="page-row">
+          <header>
+              <a href="/" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
+              <nav>
+                  <h2 class="visually-hidden">Main navigation</h2>
+                  <ul>
+                      <li><a href="{{ route('works') }}">WORK</a></li>
+                      <li><a href="{{ route('about') }}">ABOUT</a></li>
+                      <li><a href="#">VIDEOS</a></li>
+                      <li><a href="{{ route('contact') }}">CONTACT</a></li>
+                  </ul>
+              </nav>
+          </header>
+        </div>
+        <div class="page-row page-row-expanded">
+          <div class="container">
+              @if (Session::has('message'))
+                  <div class="flash alert-info">
+                      <p class="panel-body">{{ Session::get('message') }}</p>
+                  </div>
+              @endif
+              @if ($errors->any())
+                  <div class='flash alert-danger'>
+                      <ul class="panel-body">
+                          @foreach ( $errors->all() as $error )
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
                 </div>
-            @endif
-            @if ($errors->any())
-                <div class='flash alert-danger'>
-                    <ul class="panel-body">
-                        @foreach ( $errors->all() as $error )
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+              @endif
+              <div class="page-info">
+                  <h1>@yield('title')</h1>
+                  <div class="title-meta">@yield('title_meta')</div>
               </div>
-            @endif
-            <div class="page-info">
-                <h1>@yield('title')</h1>
-                <div class="title-meta">@yield('title_meta')</div>
-            </div>
-            <div class="content">
-                @yield('content')
-            </div>
+              <div class="content">
+                  @yield('content')
+              </div>
+          </div>
+        </div>
+        <div class="page-row">
+          <footer>
+            <span>Creative Fruit © {{ date('Y') }}</span>
+          </footer>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
