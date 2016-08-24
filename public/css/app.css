@@ -24,9 +24,77 @@
  * Contains global styles, such as resets, typography, colors, etc.
  */
 html {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  height: 100%;
+  width: 100%; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%; }
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal; }
+
+a {
+  color: #363535;
+  text-decoration: underline; }
+  a:focus, a:hover {
+    text-decoration: none;
+    color: #c21924; }
+
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.form-item-hidden {
+  display: none; }
+
+.inner-container {
+  margin: 0 3%; }
+  @media (min-width: 48em) {
+    .inner-container {
+      margin: 0 5%; } }
+  @media (min-width: 64em) {
+    .inner-container {
+      margin: 0 10%; } }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.page-row {
+  display: table-row;
+  height: 1px; }
+
+.page-row.page-row-expanded {
+  height: 100%; }
+
+@font-face {
+  font-family: "NuevaStd-Italic";
+  src: url("../fonts/NuevaStd-Italic.eot?") format("eot"), url("../fonts/NuevaStd-Italic.woff2") format("woff2"), url("../fonts/NuevaStd-Italic.woff") format("woff"), url("../fonts/NuevaStd-Italic.ttf") format("truetype"), url("../fonts/NuevaStd-Italic.svg#NuevaStd-Italic") format("svg"); }
+
+@font-face {
+  font-family: "Nexa Light";
+  src: url("../fonts/Nexa Light.eot?") format("eot"), url("../fonts/Nexa Light.woff2") format("woff2"), url("../fonts/Nexa Light.woff") format("woff"), url("../fonts/Nexa Light.ttf") format("truetype"), url("../fonts/Nexa Light.svg#Nexa_Light") format("svg"); }
+
+html {
+  font-family: "Nexa Light";
   font-weight: 300;
-  color: #666;
+  color: #363535;
   font-size: 12px;
   line-height: 1.75em; }
   @media (min-width: 600px) {
@@ -54,7 +122,7 @@ table {
   margin-bottom: 1.75em; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  font-family: "Nexa Light";
   font-weight: 500;
   color: #111;
   clear: both; }
@@ -259,66 +327,6 @@ td {
     td {
       padding: 0.4375em 0.875em; } }
 
-html {
-  height: 100%;
-  width: 100%; }
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: table;
-  table-layout: fixed;
-  height: 100%;
-  width: 100%; }
-
-.visually-hidden {
-  position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
-  overflow: hidden;
-  height: 1px;
-  width: 1px;
-  word-wrap: normal; }
-
-a {
-  color: #666;
-  text-decoration: underline; }
-  a:focus, a:hover {
-    text-decoration: none;
-    color: #c21924; }
-
-.container {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto; }
-  .container:after {
-    content: " ";
-    display: block;
-    clear: both; }
-
-.form-item-hidden {
-  display: none; }
-
-.inner-container {
-  margin: 0 3%; }
-  @media (min-width: 48em) {
-    .inner-container {
-      margin: 0 5%; } }
-  @media (min-width: 64em) {
-    .inner-container {
-      margin: 0 10%; } }
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-.page-row {
-  display: table-row;
-  height: 1px; }
-
-.page-row.page-row-expanded {
-  height: 100%; }
-
 /**
  * Contains each self-contained component in its own .scss partial
  */
@@ -357,9 +365,14 @@ a {
     bottom: 7%;
     color: #FFF;
     line-height: 1;
-    left: 0; }
+    left: 0;
+    font-family: 'NuevaStd-Italic';
+    font-style: italic;
+    font-size: 15px; }
     .header .text h2 {
-      color: #FFF; }
+      color: #FFF;
+      font-family: 'NuevaStd-Italic';
+      font-style: italic; }
 
 /**
  * Contains page-specific styling, if necessary.
@@ -390,6 +403,7 @@ a {
 h3.section-title {
   text-align: center;
   overflow: hidden;
+  color: #0aaab4;
   margin: 0 0 20px 0; }
   h3.section-title span {
     display: inline-block;

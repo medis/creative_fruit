@@ -59,3 +59,6 @@ a {
 .page-row.page-row-expanded {
   height: 100%;
 }
+
+@include font-face('NuevaStd-Italic', '../fonts/NuevaStd-Italic');
+@include font-face('Nexa Light', '../fonts/Nexa Light');
