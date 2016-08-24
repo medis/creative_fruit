@@ -374,6 +374,37 @@ td {
       font-family: 'NuevaStd-Italic';
       font-style: italic; }
 
+.carousel {
+  overflow: hidden;
+  margin-bottom: 70px; }
+  .carousel .slide-item {
+    width: 65.5172413793%;
+    float: left; }
+    @media (min-width: 48em) {
+      .carousel .slide-item {
+        width: 23.7288135593%;
+        float: left;
+        margin-right: 1.6949152542%; } }
+    .carousel .slide-item a {
+      display: block; }
+    .carousel .slide-item img {
+      max-width: 100%;
+      height: auto; }
+  .carousel .slick-arrow {
+    width: 5%;
+    float: left;
+    border: none;
+    text-indent: -9999px;
+    margin: 0;
+    padding: 0; }
+  .carousel .slick-next {
+    background: url("../images/next.jpg") no-repeat 50% 50%; }
+  .carousel .slick-prev {
+    background: url("../images/prev.jpg") no-repeat 50% 50%; }
+  .carousel .slick-list {
+    width: 90%;
+    float: left; }
+
 /**
  * Contains page-specific styling, if necessary.
  */

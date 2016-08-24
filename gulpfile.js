@@ -16,7 +16,8 @@ elixir(function(mix) {
   mix.sass('app.scss');
   mix.scripts([
     'dropzone.js',
-    'masonry.js'
+    'masonry.js',
+    'carousels.js'
   ]);
   mix.version([
     'css/app.css',

@@ -24,5 +24,21 @@
     <img src="/images/Skills.png" alt="" class="skills-image" />
     <div class="recent-work"><img src="/images/Work_icon.png" alt="" /></div>
     <h3 class="section-title recent-work"><span>Recent Work</span></h3>
+    @if ($works->count())
+      <div class="recent-works carousel">
+        @foreach ($works as $work)
+          @if (count($work->files))
+            <div class="slide-item">
+              <a href="{{ $work->slug }}"><img src="/storage/{{ $work->files->first()->filename }}" alt="{{ $work->title }}" /></a>
+            </div>
+          @endif
+        @endforeach
+      </div>
+    @endif
   </article>
+@endsection
+
+@section('assets')
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 @endsection

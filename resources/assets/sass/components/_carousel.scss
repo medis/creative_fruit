@@ -1,0 +1,35 @@
+.carousel {
+  overflow: hidden;
+  margin-bottom: 70px;
+  .slide-item {
+    @include span(4 of 6 no-gutter);
+    @include breakpoint($tablet) {
+      @include span(3 of 12);
+    }
+    a {
+      display: block;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .slick-arrow{
+    width: 5%;
+    float: left;
+    border: none;
+    text-indent:-9999px;
+    margin: 0;
+    padding: 0;
+  }
+  .slick-next {
+    background: url('../images/next.jpg') no-repeat 50% 50%;
+  }
+  .slick-prev {
+    background: url('../images/prev.jpg') no-repeat 50% 50%;
+  }
+  .slick-list {
+    width: 90%;
+    float: left;
+  }
+}
