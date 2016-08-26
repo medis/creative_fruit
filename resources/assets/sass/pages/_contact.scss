@@ -1,0 +1,47 @@
+.one-column {
+  form#contact-form {
+    @include span(6 of 6);
+    @include breakpoint($tablet) {
+      @include span(8 of 12);
+    }
+    @include breakpoint($desktop) {
+      @include span(6 of 12);
+    }
+  }
+}
+.two-column {
+  .text {
+    @include span(6 of 6 no-gutter);
+    @include breakpoint($tablet) {
+      @include span(6 of 12);
+    }
+    @include breakpoint($desktop) {
+      @include span(4 of 12);
+    }
+  }
+  form#contact-form  {
+    @include span(6 of 6 no-gutter);
+    @include breakpoint($tablet) {
+      @include span(6 of 12 no-gutter);
+    }
+    @include breakpoint($desktop) {
+      @include span(8 of 12 no-gutter);
+    }
+  }
+}
+form#contact-form {
+  input[type="text"], textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  input[type="text"] {
+    padding-left: 50px;
+  }
+  i {
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    font-size: 30px;
+    color: #cdcdcd;
+  }
+}

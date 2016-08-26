@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
         <!--[if lt IE 8]>

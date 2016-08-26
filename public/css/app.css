@@ -66,6 +66,11 @@ a {
 .form-item-hidden {
   display: none; }
 
+form .form-item {
+  position: relative; }
+  form .form-item input[type="text"], form .form-item textarea {
+    line-height: 1.2; }
+
 .inner-container {
   margin: 0 3%; }
   @media (min-width: 48em) {
@@ -529,6 +534,66 @@ h3.section-title {
     .right {
       width: 66.1016949153%;
       float: left; } }
+
+.one-column form#contact-form {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0; }
+  @media (min-width: 48em) {
+    .one-column form#contact-form {
+      width: 66.1016949153%;
+      float: left;
+      margin-right: 1.6949152542%; } }
+  @media (min-width: 64em) {
+    .one-column form#contact-form {
+      width: 49.1525423729%;
+      float: left;
+      margin-right: 1.6949152542%; } }
+
+.two-column .text {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0; }
+  @media (min-width: 48em) {
+    .two-column .text {
+      width: 49.1525423729%;
+      float: left;
+      margin-right: 1.6949152542%; } }
+  @media (min-width: 64em) {
+    .two-column .text {
+      width: 32.2033898305%;
+      float: left;
+      margin-right: 1.6949152542%; } }
+
+.two-column form#contact-form {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0; }
+  @media (min-width: 48em) {
+    .two-column form#contact-form {
+      width: 49.1525423729%;
+      float: left; } }
+  @media (min-width: 64em) {
+    .two-column form#contact-form {
+      width: 66.1016949153%;
+      float: left; } }
+
+form#contact-form input[type="text"], form#contact-form textarea {
+  width: 100%;
+  box-sizing: border-box; }
+
+form#contact-form input[type="text"] {
+  padding-left: 50px; }
+
+form#contact-form i {
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  font-size: 30px;
+  color: #cdcdcd; }
 
 /**
  * Contains styling for larger layout components; e.g. nav, header, footer, etc.

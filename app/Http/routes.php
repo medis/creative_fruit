@@ -15,6 +15,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/', ['as' => 'works', 'uses' => 'WorkController@index']);
 	Route::get('/about', ['as' => 'about', 'uses' => 'PageController@about']);
 	Route::get('/contact', ['as' => 'contact', 'uses' => 'PageController@contact']);
+	Route::post('/contact', ['as' => 'contact_store', 'uses' => 'PageController@contactSave']);
 	Route::get('/login', ['as' => 'login', 'uses' => 'PageController@login']);
 
 	// display single post

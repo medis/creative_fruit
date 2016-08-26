@@ -39,6 +39,14 @@ a {
 .form-item-hidden {
   display: none;
 }
+form {
+  .form-item {
+    position: relative;
+    input[type="text"], textarea {
+      line-height: 1.2;
+    }
+  }
+}
 
 .inner-container {
   margin: 0 3%;

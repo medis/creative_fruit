@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Pages;
 use App\Works;
+use App\Http\Requests\ContactFormRequest;
 
 class PageController extends Controller
 {
@@ -27,6 +28,33 @@ class PageController extends Controller
           return redirect('/')->withErrors('Requested page not found');
         }
         return view('pages.contact')->with('contact', $contact);
+    }
+
+    // Save contact entry.
+    public function contactSave(ContactFormRequest $request) {
+      $client = new \GuzzleHttp\Client();
+      $res = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
+        'form_params' => [
+          'secret' => env('CAPTCHA_SECRET'),
+          'response' => $request->get('g-recaptcha-response'),
+          'remoteip' => $request->ip()
+        ]
+      ]);
+      $response = json_decode($res->getBody(), true);
+      if (!$response['success']) {
+        return redirect('contact')->withErrors('Error verifying captcha');
+      }
+
+      \Mail::send('emails.contact', [
+        'name' => $request->get('name'),
+        'email' => $request->get('email'),
+        'user_message' => $request->get('body')
+      ], function($message) {
+          $message->from(env('EMAIL_ADDRESS'));
+          $message->to(env('EMAIL_ADDRESS'), 'Admin')->subject('CreativeFruit Contact Form Submission');
+      });
+
+      return redirect('contact')->with('message', 'Thank you for contacting me!');
     }
 
     public function login() {
