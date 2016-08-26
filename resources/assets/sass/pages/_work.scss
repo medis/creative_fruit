@@ -1,0 +1,18 @@
+.left {
+  @include span(6 of 6 no-gutter);
+  @include breakpoint($tablet) {
+    @include span(6 of 12);
+  }
+  @include breakpoint($desktop) {
+    @include span(4 of 12);
+  }
+}
+.right {
+  @include span(6 of 6 no-gutter);
+  @include breakpoint($tablet) {
+    @include span(6 of 12 no-gutter);
+  }
+  @include breakpoint($desktop) {
+    @include span(8 of 12 no-gutter);
+  }
+}

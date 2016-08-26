@@ -57,7 +57,7 @@
                       </ul>
                 </div>
               @endif
-              <div class="page-info">
+              <div class="page-info inner-container">
                   <h1>@yield('title')</h1>
                   <div class="title-meta">@yield('title_meta')</div>
               </div>
