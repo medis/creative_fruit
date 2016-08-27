@@ -1,7 +1,12 @@
 header {
   width: 100%;
   overflow: hidden;
+  background: #FFF;
+  border-bottom: 9px solid #FFF;
+  -webkit-transition: border 0.2s linear;
+  transition: border 0.2s linear;
   a.logo {
+    line-height: 0;
     @include span(3 of 6 no-gutters);
     @include breakpoint($tablet) {
       @include span(3 of 12);
@@ -9,6 +14,8 @@ header {
     img {
       width: 100%;
       height: auto;
+      -webkit-transition: width .2s;
+      transition: width .2s;
     }
   }
   nav {
@@ -17,6 +24,8 @@ header {
       padding: 45px span(2) 0 0;
       list-style: none;
       text-align: right;
+      -webkit-transition: padding 0.2s linear;
+      transition: padding 0.2s linear;
       li {
         display: inline;
         padding-left: 25px;
@@ -36,5 +45,20 @@ header {
       }
     }
     @include span(9 of 12 last);
+  }
+}
+#header-sticky-wrapper {
+  z-index: 10;
+  position: relative;
+  &.is-sticky {
+    img {
+      width: 60%;
+    }
+    nav ul {
+      padding: 25px span(2) 0 0;
+    }
+    header {
+      border-bottom: 9px solid #dfdfdf;
+    }
   }
 }

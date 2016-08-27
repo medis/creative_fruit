@@ -17,7 +17,8 @@ elixir(function(mix) {
   mix.scripts([
     'dropzone.js',
     'masonry.js',
-    'carousels.js'
+    'carousels.js',
+    'sticky.js'
   ]);
   mix.version([
     'css/app.css',

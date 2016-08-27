@@ -600,8 +600,12 @@ form#contact-form i {
  */
 header {
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  background: #FFF;
+  border-bottom: 9px solid #FFF;
+  transition: border 0.2s linear; }
   header a.logo {
+    line-height: 0;
     width: 48.275862069%;
     float: left; }
     @media (min-width: 48em) {
@@ -611,7 +615,8 @@ header {
         margin-right: 1.6949152542%; } }
     header a.logo img {
       width: 100%;
-      height: auto; }
+      height: auto;
+      transition: width .2s; }
   header nav {
     width: 74.5762711864%;
     float: right;
@@ -620,7 +625,8 @@ header {
       margin: 0;
       padding: 45px 15.2542372881% 0 0;
       list-style: none;
-      text-align: right; }
+      text-align: right;
+      transition: padding 0.2s linear; }
       header nav ul li {
         display: inline;
         padding-left: 25px; }
@@ -634,6 +640,16 @@ header {
           header nav ul li a:active, header nav ul li a:focus, header nav ul li a:hover {
             color: #575656;
             border-bottom-color: #c21924; }
+
+#header-sticky-wrapper {
+  z-index: 10;
+  position: relative; }
+  #header-sticky-wrapper.is-sticky img {
+    width: 60%; }
+  #header-sticky-wrapper.is-sticky nav ul {
+    padding: 25px 15.2542372881% 0 0; }
+  #header-sticky-wrapper.is-sticky header {
+    border-bottom: 9px solid #dfdfdf; }
 
 footer {
   background: #dfdfdf;

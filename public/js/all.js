@@ -126,4 +126,10 @@ if (typeof Dropzone !== 'undefined') {
   }
 })(jQuery);
 
+(function($) {
+  $(document).ready(function(){
+    $("#header").sticky({topSpacing:0});
+  });
+})(jQuery);
+
 //# sourceMappingURL=all.js.map

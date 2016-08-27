@@ -30,7 +30,7 @@
             </div>
         @endif
         <div class="page-row">
-          <header>
+          <header id="header">
               <a href="/" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
               <nav>
                   <h2 class="visually-hidden">Main navigation</h2>
@@ -76,6 +76,7 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="js/vendor/jquery.sticky.js"></script>
         <script src="js/vendor/masonry.pkgd.min.js"></script>
         <script src="//npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
         @yield('assets')
