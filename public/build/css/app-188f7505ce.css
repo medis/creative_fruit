@@ -67,9 +67,13 @@ a {
   display: none; }
 
 form .form-item {
-  position: relative; }
+  position: relative;
+  margin: 10px 0; }
   form .form-item input[type="text"], form .form-item textarea {
     line-height: 1.2; }
+
+input[type="submit"].button {
+  display: inline-block; }
 
 .inner-container {
   margin: 0 3%; }
@@ -91,6 +95,10 @@ form .form-item {
 
 .page-row.page-row-expanded {
   height: 100%; }
+
+.form-item-title,
+.form-item-video {
+  width: 100%; }
 
 @font-face {
   font-family: "NuevaStd-Italic";
@@ -435,6 +443,19 @@ td {
   font-size: 2em;
   vertical-align: middle; }
 
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0; }
+  .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
 /**
  * Contains page-specific styling, if necessary.
  */
@@ -534,6 +555,10 @@ h3.section-title {
     .right {
       width: 66.1016949153%;
       float: left; } }
+  .right img {
+    display: block; }
+  .right > * {
+    margin-bottom: 20px; }
 
 .one-column form#contact-form {
   width: 100%;

@@ -31,13 +31,13 @@
         @endif
         <div class="page-row">
           <header id="header">
-              <a href="/" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
+              <a href="{{ route('home') }}" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
               <nav>
                   <h2 class="visually-hidden">Main navigation</h2>
                   <ul>
                       <li><a href="{{ route('works') }}">WORK</a></li>
                       <li><a href="{{ route('about') }}">ABOUT</a></li>
-                      <li><a href="#">VIDEOS</a></li>
+                      <li><a href="{{ route('videos') }}">VIDEOS</a></li>
                       <li><a href="{{ route('contact') }}">CONTACT</a></li>
                   </ul>
               </nav>
@@ -76,8 +76,8 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="js/vendor/jquery.sticky.js"></script>
-        <script src="js/vendor/masonry.pkgd.min.js"></script>
+        <script src="/js/vendor/jquery.sticky.js"></script>
+        <script src="/js/vendor/masonry.pkgd.min.js"></script>
         <script src="//npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
         @yield('assets')
         <script src="{{ elixir('js/all.js') }}" type="text/javascript"></script>

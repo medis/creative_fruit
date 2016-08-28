@@ -42,10 +42,15 @@ a {
 form {
   .form-item {
     position: relative;
+    margin: 10px 0;
     input[type="text"], textarea {
       line-height: 1.2;
     }
   }
+}
+
+input[type="submit"].button {
+  display: inline-block;
 }
 
 .inner-container {
@@ -70,6 +75,11 @@ form {
 }
 .page-row.page-row-expanded {
   height: 100%;
+}
+
+.form-item-title,
+.form-item-video {
+  width: 100%;
 }
 
 @include font-face('NuevaStd-Italic', '../fonts/NuevaStd-Italic');

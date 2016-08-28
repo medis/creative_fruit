@@ -39,8 +39,22 @@ class AdminController extends Controller
         $work = new Works();
         $work->title = $request->get('title');
         $work->body = $request->get('body');
+        $work->type = $request->get('type');
         $work->slug = str_slug($work->title);
         $work->author_id = $request->user()->id;
+
+        if ($work->type == 'video') {
+            $work->video_url = $request->get('video_url');
+            if (empty($work->video_url)) {
+              return redirect('work/new')->withErrors('Video url is required.')->withInput();
+            }
+            preg_match('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $work->video_url, $matches);
+            if (isset($matches[7]) && !empty($matches[7])) {
+                $thumbnail_link = 'http://img.youtube.com/vi/:id/0.jpg';
+                $work->video_thumbnail = str_replace(':id', $matches[7], $thumbnail_link);
+            }
+        }
+
         if ($request->has('save')) {
             $work->active = 0;
             $message = 'Post saved successfully';
@@ -95,7 +109,7 @@ class AdminController extends Controller
             $duplicate = Works::where('slug', $slug)->first();
             if ($duplicate) {
                 if ($duplicate->id != $work_id) {
-                    return redirect('work/'.$post->slug.'/edit')->withErrors('Title already exists.')->withInput();
+                    return redirect('work/'.$work->slug.'/edit')->withErrors('Title already exists.')->withInput();
                 }
                 else {
                     $work->slug = $slug;
@@ -103,6 +117,19 @@ class AdminController extends Controller
             }
             $work->title = $title;
             $work->body = $request->input('body');
+            $work->type = $request->input('type');
+
+            if ($work->type == 'video') {
+                $work->video_url = $request->get('video_url');
+                if (empty($work->video_url)) {
+                  return redirect('work/'.$work->slug.'/edit')->withErrors('Video url is required.')->withInput();
+                }
+                preg_match('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $work->video_url, $matches);
+                if (isset($matches[7]) && !empty($matches[7])) {
+                    $thumbnail_link = 'http://img.youtube.com/vi/:id/0.jpg';
+                    $work->video_thumbnail = str_replace(':id', $matches[7], $thumbnail_link);
+                }
+            }
             if ($request->has('save')) {
                 $work->active = 0;
                 $message = 'Work saved successfully';

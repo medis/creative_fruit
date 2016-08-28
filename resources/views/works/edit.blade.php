@@ -9,11 +9,18 @@ var files = {!! json_encode($files) !!};
 @endsection
 
 @section('content')
-    <form method="post" action='{{ url("/work/" . $work->slug . "/edit") }}'>
+    <form method="post" action='{{ url("/work/" . $work->slug . "/edit") }}' class="inner-container">
         <input type="hidden" class="token" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="work_id" value="{{ $work->id }}{{ old('work_id') }}">
         <div class="form-item">
             <input required="required" placeholder="Enter title here" type="text" name="title" class="form-item-title" value="@if(!old('title')){{$work->title}}@endif{{ old('title') }}"/>
+        </div>
+        <div class="form-item">
+            <label><input type="radio" name="type" value="work" @if ($work->type == 'work') checked="checked" @endif> <i>Work</i></label>
+            <label><input type="radio" name="type" value="video" @if ($work->type == 'video') checked="checked" @endif> <i>Video</i></label>
+        </div>
+        <div class="form-item">
+          <input value="{{ old('video') }}" placeholder="Enter video link" type="text" name="video_url" class="form-item-video" />
         </div>
         <div class="form-item">
             <textarea name='body' class="form-item-body ckeditor">@if (!old('body')){!! $work->body !!}@endif{!! old('body') !!}</textarea>

@@ -12,11 +12,13 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-	Route::get('/', ['as' => 'works', 'uses' => 'WorkController@index']);
+	Route::get('/', ['as' => 'home', 'uses' => 'WorkController@index']);
 	Route::get('/about', ['as' => 'about', 'uses' => 'PageController@about']);
 	Route::get('/contact', ['as' => 'contact', 'uses' => 'PageController@contact']);
 	Route::post('/contact', ['as' => 'contact_store', 'uses' => 'PageController@contactSave']);
 	Route::get('/login', ['as' => 'login', 'uses' => 'PageController@login']);
+	Route::get('/works', ['as' => 'works', 'uses' => 'WorkController@works']);
+	Route::get('/videos', ['as' => 'videos', 'uses' => 'WorkController@videos']);
 
 	// display single post
 	Route::get('/{slug}',['as' => 'work', 'uses' => 'WorkController@show'])->where('slug', '[A-Za-z0-9-_]+');

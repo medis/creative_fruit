@@ -15,4 +15,10 @@
   @include breakpoint($desktop) {
     @include span(8 of 12 no-gutter);
   }
+  img {
+    display: block;
+  }
+  > * {
+    margin-bottom: 20px;
+  }
 }

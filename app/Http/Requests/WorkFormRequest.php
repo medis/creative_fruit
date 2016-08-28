@@ -25,6 +25,7 @@ class WorkFormRequest extends Request
         return [
           'title' => 'required|unique:works|max:255',
           'title' => array('Regex:/^[A-Za-z0-9 ]+$/'),
+          'video' => array('Regex:/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/'),
           'body' => 'required',
         ];
     }

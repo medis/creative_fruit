@@ -16,11 +16,17 @@
 @section('content')
 @if ($work)
     <div class="inner-container">
-        @if (!$work->files->count())
+        @if (!$work->files->count() && $work->type == 'work')
           {!! $work->body !!}
         @else
           <div class="left">{!! $work->body !!}</div>
           <div class="right">
+              @if ($work->type == 'video')
+                  <div class="videoWrapper">
+                      <iframe id="ytplayer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/{{ $video_id }}?autoplay=0" frameborder="0"></iframe>
+                  </div>
+              @endif
+
             @foreach ($work->files as $file)
                 <img src="/storage/{{ $file->filename }}" />
             @endforeach
