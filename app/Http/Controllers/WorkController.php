@@ -23,10 +23,11 @@ class WorkController extends Controller
             return redirect('/')->withErrors('Requested page not found');
         }
 
+        $params = [];
         if ($work->type == 'video') {
             preg_match('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $work->video_url, $matches);
             if (isset($matches[7]) && !empty($matches[7])) {
-                $params = ['video_id' => $matches[7]];
+                $params['video_id'] = $matches[7];
             }
         }
 
