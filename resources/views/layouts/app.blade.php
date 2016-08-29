@@ -31,7 +31,7 @@
         @endif
         <div class="page-row">
           <header id="header">
-              <a href="{{ route('home') }}" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
+              <a href="{{ route('works') }}" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
               <nav>
                   <h2 class="visually-hidden">Main navigation</h2>
                   <ul>
