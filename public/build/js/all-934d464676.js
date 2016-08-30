@@ -110,18 +110,6 @@ if (typeof Dropzone !== 'undefined') {
       });
     });
 
-    // Hover.
-    $(".grid-item a").hover(over, out);
-
-    // Focus.
-    $('.grid-item a').focus( function(e) {
-      over(e, $(this));
-    });
-
-    $('.grid-item a').blur( function(e) {
-      out(e, $(this));
-    });
-
     function over(e, $elem) {
       if (typeof $elem == 'undefined') {
         $elem = $(this);
@@ -165,6 +153,18 @@ if (typeof Dropzone !== 'undefined') {
         ease:Quad.easeInOut
       });
     }
+
+    // Hover.
+    $(".grid-item a").hover(over, out);
+
+    // Focus.
+    $('.grid-item a').focus( function(e) {
+      over(e, $(this));
+    });
+
+    $('.grid-item a').blur( function(e) {
+      out(e, $(this));
+    });
 
   }
 })(jQuery);
