@@ -78,6 +78,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="/js/vendor/jquery.sticky.js"></script>
         <script src="/js/vendor/masonry.pkgd.min.js"></script>
+        <script src="/js/vendor/TweenMax.min.js"></script>
         <script src="//npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
         @yield('assets')
         <script src="{{ elixir('js/all.js') }}" type="text/javascript"></script>

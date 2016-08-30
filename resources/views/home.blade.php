@@ -11,8 +11,10 @@
                         <div class="grid-item">
                             <div class="wrapper">
                                   <a href="{{ $work->slug }}">
+                                      <div class="background"></div>
                                       <div class="text-wrapper">
                                         <h3>{{ $work->title }}</h3>
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
                                       </div>
                                       @if (count($work->files))
                                           <img src="/storage/{{ $work->files->first()->filename }}" alt="{{ $work->title }}" />
