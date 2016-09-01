@@ -41,6 +41,8 @@
                       <li><a href="{{ route('contact') }}">CONTACT</a></li>
                   </ul>
               </nav>
+              <div class="clearfix border"></div>
+              <div class="background"></div>
           </header>
         </div>
         <div class="page-row page-row-expanded">

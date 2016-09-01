@@ -679,16 +679,26 @@ form#contact-form i {
  * Contains styling for larger layout components; e.g. nav, header, footer, etc.
  */
 header {
-  width: 100%;
-  overflow: hidden;
+  width: 96% !important;
+  margin: 0 2%;
   background: #FFF;
-  border-bottom: 9px solid #FFF;
-  transition: border 0.2s linear; }
+  position: relative; }
+  header .border {
+    transition: background 0.2s linear;
+    background: #FFF;
+    clear: both;
+    margin: 0 -2% 0 -2%;
+    height: 9px; }
   header a.logo {
     line-height: 0;
-    width: 48.275862069%;
-    float: left; }
+    width: 240px;
+    display: block; }
     @media (min-width: 48em) {
+      header a.logo {
+        width: 49.1525423729%;
+        float: left;
+        margin-right: 1.6949152542%; } }
+    @media (min-width: 64em) {
       header a.logo {
         width: 23.7288135593%;
         float: left;
@@ -703,10 +713,12 @@ header {
     margin-right: 0; }
     header nav ul {
       margin: 0;
-      padding: 45px 15.2542372881% 0 0;
+      padding: 0;
       list-style: none;
-      text-align: right;
-      transition: padding 0.2s linear; }
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0; }
       header nav ul li {
         display: inline;
         padding-left: 25px; }
@@ -722,14 +734,20 @@ header {
             border-bottom-color: #c21924; }
 
 #header-sticky-wrapper {
-  z-index: 10;
+  z-index: 200;
   position: relative; }
   #header-sticky-wrapper.is-sticky img {
     width: 60%; }
-  #header-sticky-wrapper.is-sticky nav ul {
-    padding: 25px 15.2542372881% 0 0; }
-  #header-sticky-wrapper.is-sticky header {
-    border-bottom: 9px solid #dfdfdf; }
+  #header-sticky-wrapper.is-sticky header .border {
+    background: #dfdfdf; }
+  #header-sticky-wrapper.is-sticky header .background {
+    position: absolute;
+    top: 0;
+    left: -3%;
+    bottom: 0;
+    right: -3%;
+    background: #FFF;
+    z-index: -1; }
 
 footer {
   background: #dfdfdf;

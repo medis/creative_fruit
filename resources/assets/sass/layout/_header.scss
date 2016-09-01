@@ -1,14 +1,24 @@
 header {
-  width: 100%;
-  overflow: hidden;
+  width: 96% !important;
+  margin: 0 2%;
   background: #FFF;
-  border-bottom: 9px solid #FFF;
-  -webkit-transition: border 0.2s linear;
-  transition: border 0.2s linear;
+  position: relative;
+  .border {
+    -webkit-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+    background: #FFF;
+    clear: both;
+    margin: 0 -2% 0 -2%;
+    height: 9px;
+  }
   a.logo {
     line-height: 0;
-    @include span(3 of 6 no-gutters);
+    width: 240px;
+    display: block;
     @include breakpoint($tablet) {
+      @include span(6 of 12);
+    }
+    @include breakpoint($desktop) {
       @include span(3 of 12);
     }
     img {
@@ -21,11 +31,12 @@ header {
   nav {
     ul {
       margin: 0;
-      padding: 45px span(2) 0 0;
+      padding: 0;
       list-style: none;
-      text-align: right;
-      -webkit-transition: padding 0.2s linear;
-      transition: padding 0.2s linear;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
       li {
         display: inline;
         padding-left: 25px;
@@ -48,17 +59,25 @@ header {
   }
 }
 #header-sticky-wrapper {
-  z-index: 10;
+  z-index: 200;
   position: relative;
   &.is-sticky {
     img {
       width: 60%;
     }
-    nav ul {
-      padding: 25px span(2) 0 0;
-    }
     header {
-      border-bottom: 9px solid #dfdfdf;
+      .border {
+        background: #dfdfdf;
+      }
+      .background {
+        position: absolute;
+        top: 0;
+        left: -3%;
+        bottom: 0;
+        right: -3%;
+        background: #FFF;
+        z-index: -1;
+      }
     }
   }
 }
