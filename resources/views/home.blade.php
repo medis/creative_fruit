@@ -8,29 +8,25 @@
             <div class="masonry">
                 @foreach ($works as $work)
                     @if (count($work->files) || $work->type == 'video')
-                        <div class="grid-item">
-                            <div class="wrapper">
-                                  <a href="{{ $work->slug }}">
-                                      <div class="background"></div>
-                                      <div class="text-wrapper">
-                                        <h3>{{ $work->title }}</h3>
-                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                      </div>
-                                      @if (count($work->files))
-                                          <img src="/storage/{{ $work->files->first()->filename }}" alt="{{ $work->title }}" />
-                                      @else
-                                          <img src="{{ $work->video_thumbnail }}" alt="{{ $work->title }}" />
-                                      @endif
-                                  </a>
+                        <a href="{{ $work->slug }}" class="grid-item">
+                            <div class="background"></div>
+                            <div class="text-wrapper">
+                              <h3>{{ $work->title }}</h3>
+                              <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             </div>
-                            @if(!Auth::guest())
-                                @if($work->active == '1')
-                                    <button class="btn" style="float: right"><a href="{{ url('work/'.$work->slug.'/edit')}}">Edit Work</a></button>
-                                @else
-                                    <button class="btn" style="float: right"><a href="{{ url('work/'.$work->slug.'/edit')}}">Edit Draft</a></button>
-                                @endif
+                            @if (count($work->files))
+                                <img src="/storage/{{ $work->files->first()->filename }}" alt="{{ $work->title }}" />
+                            @else
+                                <img src="{{ $work->video_thumbnail }}" alt="{{ $work->title }}" />
                             @endif
-                        </div>
+                        </a>
+                          @if(!Auth::guest())
+                              @if($work->active == '1')
+                                  <button class="btn" style="float: right"><a href="{{ url('work/'.$work->slug.'/edit')}}">Edit Work</a></button>
+                              @else
+                                  <button class="btn" style="float: right"><a href="{{ url('work/'.$work->slug.'/edit')}}">Edit Draft</a></button>
+                              @endif
+                          @endif
                     @endif
                 @endforeach
             </div>
