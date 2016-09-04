@@ -17,6 +17,15 @@ header {
     margin: 0 -2% 0 -2%;
     height: 9px;
   }
+  .background {
+    position: absolute;
+    top: 0;
+    left: -3%;
+    bottom: 0;
+    right: -3%;
+    background: #FFF;
+    z-index: -1;
+  }
   a.logo {
     line-height: 0;
     width: 240px;
@@ -79,15 +88,6 @@ header {
     header {
       .border {
         background: #dfdfdf;
-      }
-      .background {
-        position: absolute;
-        top: 0;
-        left: -3%;
-        bottom: 0;
-        right: -3%;
-        background: #FFF;
-        z-index: -1;
       }
     }
   }

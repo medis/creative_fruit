@@ -692,6 +692,14 @@ header {
     clear: both;
     margin: 0 -2% 0 -2%;
     height: 9px; }
+  header .background {
+    position: absolute;
+    top: 0;
+    left: -3%;
+    bottom: 0;
+    right: -3%;
+    background: #FFF;
+    z-index: -1; }
   header a.logo {
     line-height: 0;
     width: 240px;
@@ -747,14 +755,6 @@ header {
       width: 60%; } }
   #header-sticky-wrapper.is-sticky header .border {
     background: #dfdfdf; }
-  #header-sticky-wrapper.is-sticky header .background {
-    position: absolute;
-    top: 0;
-    left: -3%;
-    bottom: 0;
-    right: -3%;
-    background: #FFF;
-    z-index: -1; }
 
 .is-sticky .slicknav_menu .slicknav_btn.open .slicknav_icon-bar:nth-child(2) {
   margin-bottom: -5px; }
