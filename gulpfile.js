@@ -19,7 +19,8 @@ elixir(function(mix) {
     'masonry.js',
     'carousels.js',
     'sticky.js',
-    'form_visibility.js'
+    'form_visibility.js',
+    'mobile_menu.js'
   ]);
   mix.version([
     'css/app.css',

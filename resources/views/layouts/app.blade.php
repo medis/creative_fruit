@@ -13,6 +13,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/js/vendor/slicknav/slicknav.min.css">
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
         <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -33,6 +34,7 @@
         <div class="page-row">
           <header id="header">
               <a href="{{ route('works') }}" class="logo"><img src="/images/Logo.png" alt="Creative Fruit logo" /></a>
+              <div class="slicknav-wrapper"></div>
               <nav>
                   <h2 class="visually-hidden">Main navigation</h2>
                   <ul>
@@ -80,6 +82,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="/js/vendor/jquery.sticky.js"></script>
+        <script src="/js/vendor/slicknav/jquery.slicknav.min.js"></script>
         <script src="/js/vendor/masonry.pkgd.min.js"></script>
         <script src="/js/vendor/TweenMax.min.js"></script>
         <script src="//npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>

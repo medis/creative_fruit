@@ -3,6 +3,12 @@ header {
   margin: 0 2%;
   background: #FFF;
   position: relative;
+  > nav {
+    display: none;
+    @include breakpoint($tablet) {
+      display: block;
+    }
+  }
   .border {
     -webkit-transition: background 0.2s linear;
     transition: background 0.2s linear;
@@ -15,7 +21,9 @@ header {
     line-height: 0;
     width: 240px;
     display: block;
+    float: left;
     @include breakpoint($tablet) {
+      float: none;
       @include span(6 of 12);
     }
     @include breakpoint($desktop) {
@@ -28,7 +36,7 @@ header {
       transition: width .2s;
     }
   }
-  nav {
+  > nav {
     ul {
       margin: 0;
       padding: 0;
@@ -59,11 +67,14 @@ header {
   }
 }
 #header-sticky-wrapper {
+  display: block;
   z-index: 200;
   position: relative;
   &.is-sticky {
     img {
-      width: 60%;
+      @include breakpoint($tablet) {
+        width: 60%;
+      }
     }
     header {
       .border {
@@ -79,5 +90,86 @@ header {
         z-index: -1;
       }
     }
+  }
+}
+.is-sticky .slicknav_menu .slicknav_btn.open .slicknav_icon-bar:nth-child(2) {
+  margin-bottom: -5px;
+}
+.slicknav_menu {
+  background: transparent;
+  .slicknav_icon {
+    float: none;
+  }
+  ul {
+    margin: 0;
+    li a {
+      color: #575656;
+      border-bottom: 2px solid transparent;
+      &:focus, &:hover {
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        background: transparent;
+        color: #575656;
+        border-bottom-color: #c21924;
+      }
+    }
+  }
+  .slicknav_btn {
+    background: transparent;
+    margin: 0;
+    text-decoration: none;
+    text-shadow: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    font-size: 2em;
+  }
+  .slicknav_icon-bar {
+    display: block;
+    margin-bottom: 6px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 40px;
+    height: 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    background: #333;
+  }
+  .slicknav_btn.open {
+    .slicknav_icon-bar:first-child {
+      visibility: hidden;
+    }
+    .slicknav_icon-bar:nth-child(2) {
+      display: block;
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      margin-bottom: -6px;
+    }
+    .slicknav_icon-bar:nth-child(3) {
+      display: block;
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      margin-top: 0;
+    }
+  }
+  .js #menu {
+		display:none;
+	}
+	.js .slicknav_menu {
+		display:block;
+	}
+  @include breakpoint($tablet) {
+    display:none;
   }
 }
