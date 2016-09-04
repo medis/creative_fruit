@@ -681,7 +681,8 @@ header {
   margin: 0 2%;
   background: #FFF;
   position: relative;
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+  transform: translateZ(0); }
   header > nav {
     display: none; }
     @media (min-width: 48em) {
