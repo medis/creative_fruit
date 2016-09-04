@@ -50,8 +50,8 @@ class PageController extends Controller
         'email' => $request->get('email'),
         'user_message' => $request->get('body')
       ], function($message) {
-          $message->from(env('EMAIL_ADDRESS'));
-          $message->to(env('EMAIL_ADDRESS'), 'Admin')->subject('CreativeFruit Contact Form Submission');
+          $message->from(env('EMAIL_ADDRESS_FROM'));
+          $message->to(env('EMAIL_ADDRESS'))->subject('CreativeFruit Contact Form Submission');
       });
 
       return redirect('contact')->with('message', 'Thank you for contacting me!');
