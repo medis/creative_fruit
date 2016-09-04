@@ -3,6 +3,7 @@ header {
   margin: 0 2%;
   background: #FFF;
   position: relative;
+  backface-visibility: hidden;
   > nav {
     display: none;
     @include breakpoint($tablet) {

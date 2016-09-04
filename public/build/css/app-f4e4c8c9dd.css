@@ -680,7 +680,8 @@ header {
   width: 96% !important;
   margin: 0 2%;
   background: #FFF;
-  position: relative; }
+  position: relative;
+  backface-visibility: hidden; }
   header > nav {
     display: none; }
     @media (min-width: 48em) {
