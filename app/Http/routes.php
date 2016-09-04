@@ -10,12 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Need to put outside web middleware, otherwise messages won't show...
+Route::get('/contact', ['as' => 'contact', 'uses' => 'PageController@contact']);
+Route::post('/contact', ['as' => 'contact_store', 'uses' => 'PageController@contactSave']);
 
 Route::group(['middleware' => ['web']], function () {
 	Route::get('/', ['as' => 'works', 'uses' => 'WorkController@index']);
 	Route::get('/about', ['as' => 'about', 'uses' => 'PageController@about']);
-	Route::get('/contact', ['as' => 'contact', 'uses' => 'PageController@contact']);
-	Route::post('/contact', ['as' => 'contact_store', 'uses' => 'PageController@contactSave']);
+
 	Route::get('/login', ['as' => 'login', 'uses' => 'PageController@login']);
 	Route::get('/videos', ['as' => 'videos', 'uses' => 'WorkController@videos']);
 
