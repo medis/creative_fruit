@@ -38,10 +38,10 @@
               <nav>
                   <h2 class="visually-hidden">Main navigation</h2>
                   <ul>
-                      <li><a href="{{ route('works') }}">WORK</a></li>
-                      <li><a href="{{ route('about') }}">ABOUT</a></li>
-                      <li><a href="{{ route('videos') }}">VIDEOS</a></li>
-                      <li><a href="{{ route('contact') }}">CONTACT</a></li>
+                      <li><a href="{{ route('works') }}" class="{{ Request::is('/') || (!Request::is('about') && !Request::is('videos') && !Request::is('contact')) ? 'active' : '' }}">WORK</a></li>
+                      <li><a href="{{ route('about') }}" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a></li>
+                      <li><a href="{{ route('videos') }}" class="{{ Request::is('videos') ? 'active' : '' }}">VIDEOS</a></li>
+                      <li><a href="{{ route('contact') }}" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a></li>
                   </ul>
               </nav>
               <div class="clearfix border"></div>

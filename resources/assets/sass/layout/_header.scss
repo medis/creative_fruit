@@ -67,7 +67,7 @@ header {
           text-decoration: none;
           color: #575656;
           padding: 0 5px;
-          &:active, &:focus, &:hover {
+          &:active, &:focus, &:hover, &.active {
             color: #575656;
             border-bottom-color: #c21924;
           }

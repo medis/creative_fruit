@@ -750,7 +750,7 @@ header {
           text-decoration: none;
           color: #575656;
           padding: 0 5px; }
-          header > nav ul li a:active, header > nav ul li a:focus, header > nav ul li a:hover {
+          header > nav ul li a:active, header > nav ul li a:focus, header > nav ul li a:hover, header > nav ul li a.active {
             color: #575656;
             border-bottom-color: #c21924; }
 
