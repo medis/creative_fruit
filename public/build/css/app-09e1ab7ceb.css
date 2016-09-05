@@ -663,6 +663,9 @@ form#contact-form input[type="text"], form#contact-form textarea {
   width: 100%;
   box-sizing: border-box; }
 
+form#contact-form textarea {
+  height: 150px; }
+
 form#contact-form input[type="text"] {
   padding-left: 50px; }
 
@@ -672,6 +675,9 @@ form#contact-form i {
   top: 6px;
   font-size: 30px;
   color: #cdcdcd; }
+
+#contact-form input[type="submit"] {
+  margin-top: 0.5140625em; }
 
 /**
  * Contains styling for larger layout components; e.g. nav, header, footer, etc.

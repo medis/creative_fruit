@@ -34,6 +34,9 @@ form#contact-form {
     width: 100%;
     box-sizing: border-box;
   }
+  textarea {
+    height: 150px;
+  }
   input[type="text"] {
     padding-left: 50px;
   }
@@ -44,4 +47,8 @@ form#contact-form {
     font-size: 30px;
     color: #cdcdcd;
   }
+}
+
+#contact-form input[type="submit"] {
+  margin-top: 0.5140625em;
 }
