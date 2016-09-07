@@ -389,7 +389,10 @@ td {
     .header .text h2 {
       color: #FFF;
       font-family: 'NuevaStd-Italic';
-      font-style: italic; }
+      font-style: italic;
+      opacity: 0; }
+    .header .text .author {
+      opacity: 0; }
 
 .carousel {
   overflow: hidden;
@@ -578,6 +581,10 @@ h3.section-title {
 .recent-work {
   margin-top: 70px;
   text-align: center; }
+
+article.about .body {
+  opacity: 0;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 20, 0, 1); }
 
 .left {
   width: 100%;

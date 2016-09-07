@@ -20,7 +20,8 @@ elixir(function(mix) {
     'carousels.js',
     'sticky.js',
     'form_visibility.js',
-    'mobile_menu.js'
+    'mobile_menu.js',
+    'animations.js'
   ]);
   mix.version([
     'css/app.css',

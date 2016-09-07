@@ -15,10 +15,11 @@
     </div>
   </div>
   <div class="clearfix"></div>
-  <article class="inner-container">
+  <div id="#animate-text-trigger"></div>
+  <article class="about inner-container">
     <div class="about-icon"><img src="/images/about_icon.png" alt="" /></div>
     <h3 class="section-title biography"><span>Biography</span></h3>
-    {!! $about->body !!}
+    <div class="body">{!! $about->body !!}</div>
     <div class="about-icon"><img src="/images/Skills_icon.png" alt="" /></div>
     <h3 class="section-title skills"><span>Skills</span></h3>
     <img src="/images/Skills.png" alt="" class="skills-image" />
@@ -41,4 +42,7 @@
 @section('assets')
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.0/plugins/animation.gsap.min.js"></script>
 @endsection
