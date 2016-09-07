@@ -752,7 +752,7 @@ header {
           padding: 0 5px;
           transition: border .25s ease-out; }
           header > nav ul li a:active, header > nav ul li a:focus, header > nav ul li a:hover, header > nav ul li a.active {
-            color: #575656;
+            color: #000;
             border-bottom-color: #c21924; }
 
 #header-sticky-wrapper {

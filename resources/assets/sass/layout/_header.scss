@@ -72,7 +72,7 @@ header {
           -o-transition: border .25s ease-out;
           transition: border .25s ease-out;
           &:active, &:focus, &:hover, &.active {
-            color: #575656;
+            color: #000;
             border-bottom-color: #c21924;
           }
         }
