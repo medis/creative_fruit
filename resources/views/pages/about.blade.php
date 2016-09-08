@@ -15,13 +15,23 @@
     </div>
   </div>
   <div class="clearfix"></div>
-  <div id="#animate-text-trigger"></div>
+  <div id="animate-text-trigger"></div>
   <article class="about inner-container">
     <div class="about-icon"><img src="/images/about_icon.png" alt="" /></div>
-    <h3 class="section-title biography"><span>Biography</span></h3>
+    <div id="trigger-biography"></div>
+    <h3 class="section-title biography">
+      <div class="border left-border"></div>
+      <div>Biography</div>
+      <div class="border right-border"></div>
+    </h3>
     <div class="body">{!! $about->body !!}</div>
     <div class="about-icon"><img src="/images/Skills_icon.png" alt="" /></div>
-    <h3 class="section-title skills"><span>Skills</span></h3>
+    <div id="trigger-skills"></div>
+    <h3 class="section-title skills">
+      <div class="border left-border"></div>
+      <div>Skills</div>
+      <div class="border right-border"></div>
+    </h3>
     <img src="/images/Skills.png" alt="" class="skills-image" />
     <div class="recent-work"><img src="/images/Work_icon.png" alt="" /></div>
     <h3 class="section-title recent-work"><span>Recent Work</span></h3>

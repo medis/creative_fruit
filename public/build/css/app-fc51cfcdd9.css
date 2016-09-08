@@ -542,35 +542,18 @@ h3.section-title {
   text-align: center;
   overflow: hidden;
   color: #0aaab4;
-  margin: 0 0 20px 0; }
-  h3.section-title span {
-    display: inline-block;
-    position: relative; }
-    h3.section-title span:before, h3.section-title span:after {
-      content: "";
-      position: absolute;
-      line-height: 31px;
-      border-bottom: 1px solid #cdcdcd;
-      top: 50%;
-      width: 600px; }
-    h3.section-title span:before {
-      right: 100%;
-      margin-right: 50%; }
-      @media (min-width: 48em) {
-        h3.section-title span:before {
-          margin-right: 100%; } }
-      @media (min-width: 64em) {
-        h3.section-title span:before {
-          margin-right: 150%; } }
-    h3.section-title span:after {
-      left: 100%;
-      margin-left: 50%; }
-      @media (min-width: 48em) {
-        h3.section-title span:after {
-          margin-left: 100%; } }
-      @media (min-width: 64em) {
-        h3.section-title span:after {
-          margin-left: 150%; } }
+  margin: 0 0 20px 0;
+  position: relative; }
+  h3.section-title .border {
+    position: absolute;
+    line-height: 31px;
+    border-bottom: 1px solid #cdcdcd;
+    top: 50%;
+    width: 0%; }
+  h3.section-title .left-border {
+    left: 0; }
+  h3.section-title .right-border {
+    right: 0; }
 
 .skills-image {
   max-width: 100%;
@@ -584,7 +567,8 @@ h3.section-title {
 
 article.about .body {
   opacity: 0;
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 20, 0, 1); }
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 20, 0, 1);
+  text-align: justify; }
 
 .left {
   width: 100%;
