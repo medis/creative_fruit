@@ -395,35 +395,47 @@ td {
       opacity: 0; }
 
 .carousel {
-  overflow: hidden;
-  margin-bottom: 70px; }
+  margin-bottom: 70px;
+  overflow: hidden; }
   .carousel .slide-item {
     width: 65.5172413793%;
-    float: left; }
+    float: left;
+    position: relative;
+    display: inline-block !important;
+    vertical-align: middle;
+    float: none; }
     @media (min-width: 48em) {
       .carousel .slide-item {
         width: 23.7288135593%;
         float: left;
-        margin-right: 1.6949152542%; } }
+        margin-right: 1.6949152542%;
+        float: none; } }
     .carousel .slide-item a {
-      display: block; }
+      vertical-align: middle; }
     .carousel .slide-item img {
       max-width: 100%;
       height: auto; }
   .carousel .slick-arrow {
-    width: 5%;
-    float: left;
+    width: 4%;
     border: none;
     text-indent: -9999px;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    display: inline-block !important;
+    vertical-align: middle; }
   .carousel .slick-next {
     background: url("../images/next.jpg") no-repeat 50% 50%; }
   .carousel .slick-prev {
     background: url("../images/prev.jpg") no-repeat 50% 50%; }
   .carousel .slick-list {
     width: 90%;
-    float: left; }
+    display: inline-block !important;
+    vertical-align: middle; }
+  .carousel .slick-slide:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle; }
 
 .isa_info {
   color: #00529B;

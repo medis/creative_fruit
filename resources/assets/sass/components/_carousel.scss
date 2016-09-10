@@ -1,13 +1,19 @@
 .carousel {
-  overflow: hidden;
   margin-bottom: 70px;
+  overflow: hidden;
+
   .slide-item {
     @include span(4 of 6 no-gutter);
     @include breakpoint($tablet) {
       @include span(3 of 12);
+      float: none;
     }
+    position: relative;
+    display: inline-block !important;
+    vertical-align: middle;
+    float: none;
     a {
-      display: block;
+      vertical-align: middle;
     }
     img {
       max-width: 100%;
@@ -15,12 +21,13 @@
     }
   }
   .slick-arrow{
-    width: 5%;
-    float: left;
+    width: 4%;
     border: none;
     text-indent:-9999px;
     margin: 0;
     padding: 0;
+    display: inline-block !important;
+    vertical-align: middle;
   }
   .slick-next {
     background: url('../images/next.jpg') no-repeat 50% 50%;
@@ -30,6 +37,13 @@
   }
   .slick-list {
     width: 90%;
-    float: left;
+    display: inline-block !important;
+    vertical-align: middle;
+  }
+  .slick-slide:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
   }
 }

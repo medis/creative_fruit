@@ -3,6 +3,7 @@
   animate_about_text();
   animate_border('#trigger-biography', '.section-title.biography .border');
   animate_border('#trigger-skills', '.section-title.skills .border');
+  animate_border('#trigger-work', '.section-title.recent-work .border');
 
   // Animate header.
   function animate_header() {

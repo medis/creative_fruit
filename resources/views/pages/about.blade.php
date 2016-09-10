@@ -34,7 +34,12 @@
     </h3>
     <img src="/images/Skills.png" alt="" class="skills-image" />
     <div class="recent-work"><img src="/images/Work_icon.png" alt="" /></div>
-    <h3 class="section-title recent-work"><span>Recent Work</span></h3>
+    <div id="trigger-work"></div>
+    <h3 class="section-title recent-work">
+      <div class="border left-border"></div>
+      <div>Recent Work</div>
+      <div class="border right-border"></div>
+    </h3>
     @if ($works->count())
       <div class="recent-works carousel">
         @foreach ($works as $work)
