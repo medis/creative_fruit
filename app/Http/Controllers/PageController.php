@@ -10,6 +10,10 @@ use App\Http\Requests\ContactFormRequest;
 
 class PageController extends Controller
 {
+    public function chart() {
+      return view('pages.chart');
+    }
+    
     // About page callback.
     public function about() {
         $about = Pages::where('title', 'About')->first();

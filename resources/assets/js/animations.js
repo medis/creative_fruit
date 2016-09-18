@@ -1,4 +1,8 @@
 (function($) {
+  if (typeof ScrollMagic == 'undefined') {
+    return;
+  }
+  
   animate_header();
   animate_about_text();
   animate_border('#trigger-biography', '.section-title.biography .border');
