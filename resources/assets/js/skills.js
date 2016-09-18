@@ -1,28 +1,29 @@
 (function($) {
   var percent = 55;
 
-
     var pie=d3.layout.pie()
             .value(function(d){return d})
             .sort(null);
 
-    var w=300,h=320;
+    var w=230,h=230;
 
-    var outerRadius=(w/2)-10;
-    var innerRadius=outerRadius-8;
+    var outerRadius=(w/2.3)-10;
+    var innerRadius=outerRadius-12;
 
 
-    var color = ['#ec1561','#2a3a46','#202b33'];
+    var color = ['#4ac0ed','#1f1b3d'];
 
-    //The circle is following this
+    var arc=d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius((outerRadius-innerRadius)/12+innerRadius)
+            .startAngle(0)
+            .endAngle(2*Math.PI);
+
+    //The line is following this
     var arcDummy=d3.svg.arc()
             .innerRadius((outerRadius-innerRadius)/2+innerRadius)
             .outerRadius((outerRadius-innerRadius)/2+innerRadius)
             .startAngle(0);
-
-
-    var pathinfo = [{x:0, y:0},
-                    {x:0, y:30}];
 
     var d3line2 = d3.svg.line()
                         .x(function(d){return d.x;})
@@ -46,6 +47,27 @@
                 transform:'translate('+w/2+','+h/2+')'
             });
 
+    var vertrical_line_path = [
+      {x:0, y: -h/2 + 2},
+      {x:0, y: h/2 - 2}
+    ];
+    var vertrical_line = svg.append('path')
+            .attr("d", d3line2(vertrical_line_path))
+            .style({
+                stroke:color[0],
+                'stroke-width':4,
+                'stroke-linecap': 'round',
+                fill:color[0]
+            });
+
+    //background
+    var path=svg.append('path')
+            .attr({
+                d:arc
+            })
+            .style({
+                fill:color[1]
+            });
     var pathForeground=svg.append('path')
             .datum({endAngle:0})
             .attr({
@@ -64,12 +86,32 @@
                 fill:color[0]
             });
 
+    var pathinfo = [{x:0, y:4},
+                    {x:0, y:-20}];
+
     var endLine = svg.append('path')
             .attr("d", d3line2(pathinfo))
             .style({
                 stroke:color[0],
-                'stroke-width':8,
-                fill:color[2]
+                'stroke-width':4,
+                'stroke-linecap': 'round',
+                fill:color[0]
+            });
+
+    var middleTextTitle=svg.append('text')
+            .datum(0)
+            .text('Ps')
+            .attr({
+                class:'middleText',
+                'text-anchor':'middle',
+                dy: 25,
+                dx:0
+            })
+            .style({
+                fill: color[0],
+                'font-size':'70px',
+                'opacity': 0,
+                'font-weight': 'bold'
             });
 
     var middleTextCount=svg.append('text')
@@ -81,20 +123,19 @@
             .attr({
                 class:'middleText',
                 'text-anchor':'middle',
-                dy:25,
+                dy: 15,
                 dx:0
             })
             .style({
-                fill:'#ec1561',
-                'font-size':'80px'
-
+                fill: color[0],
+                'font-size':'50px'
             });
 
 
     var arcTweenOld=function(transition, percent,oldValue) {
         transition.attrTween("d", function (d) {
 
-            var newAngle=(percent/100)*(2*Math.PI);
+            var newAngle= -1 * (percent/100)*(2*Math.PI);
 
             var interpolate = d3.interpolate(d.endAngle, newAngle);
 
@@ -125,9 +166,18 @@
                 .ease('cubic')
                 .call(arcTweenOld,percent,oldValue);
 
+        middleTextCount.transition()
+          .delay(1000)
+          .duration(500)
+          .style('opacity', 0);
+
+        middleTextTitle.transition()
+          .delay(1500)
+          .duration(500)
+          .style('opacity', 1);
+
         oldValue=percent;
         percent=(Math.random() * 60) + 20;
-        setTimeout(animate,3000);
     };
 
     setTimeout(animate,0);
