@@ -582,6 +582,15 @@ article.about .body {
   transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 20, 0, 1);
   text-align: justify; }
 
+.skills-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+
+.skills-wrapper li.skill-chart {
+  display: inline-block; }
+
 .left {
   width: 100%;
   float: left;

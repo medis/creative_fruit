@@ -26,13 +26,22 @@
     </h3>
     <div class="body">{!! $about->body !!}</div>
     <div class="about-icon"><img src="/images/Skills_icon.png" alt="" /></div>
-    <div id="trigger-skills"></div>
-    <h3 class="section-title skills">
-      <div class="border left-border"></div>
-      <div>Skills</div>
-      <div class="border right-border"></div>
-    </h3>
-    <img src="/images/Skills.png" alt="" class="skills-image" />
+    @if (!empty($skills))
+      <div id="trigger-skills"></div>
+      <h3 class="section-title skills">
+        <div class="border left-border"></div>
+        <div>Skills</div>
+        <div class="border right-border"></div>
+      </h3>
+      <div class="skills-wrapper">
+        <ul>
+          @foreach ($skills as $skill)
+            <li class="skill-chart" id='{{ $skill["id"] }}' data-colors='{{ $skill["colors"] }}' data-percent='{{ $skill["percent"] }}' data-text='{{ $skill["text"] }}'></li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
     <div class="recent-work"><img src="/images/Work_icon.png" alt="" /></div>
     <div id="trigger-work"></div>
     <h3 class="section-title recent-work">
@@ -60,4 +69,5 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.0/plugins/animation.gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 @endsection

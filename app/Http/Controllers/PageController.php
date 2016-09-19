@@ -13,7 +13,7 @@ class PageController extends Controller
     public function chart() {
       return view('pages.chart');
     }
-    
+
     // About page callback.
     public function about() {
         $about = Pages::where('title', 'About')->first();
@@ -22,7 +22,41 @@ class PageController extends Controller
         if (empty($about)) {
           return redirect('/')->withErrors('Requested page not found');
         }
-        return view('pages.about')->with('about', $about)->with('works', $works);
+
+        $skills = [
+          [
+            'colors' => json_encode(['#4ac0ed','#1f1b3d']),
+            'percent' => 90,
+            'text' => 'Ps',
+            'id' => 'id-' . uniqid(),
+          ],
+          [
+            'colors' => json_encode(['#ee7a38','#1b0e08']),
+            'percent' => 90,
+            'text' => 'Ai',
+            'id' => 'id-' . uniqid(),
+          ],
+          [
+            'colors' => json_encode(['#e8458f','#200811']),
+            'percent' => 60,
+            'text' => 'Id',
+            'id' => 'id-' . uniqid(),
+          ],
+          [
+            'colors' => json_encode(['#85bb25','#121810']),
+            'percent' => 50,
+            'text' => 'Dw',
+            'id' => 'id-' . uniqid(),
+          ],
+          [
+            'colors' => json_encode(['#b78bbe','#1d0f25']),
+            'percent' => 55,
+            'text' => 'Pr',
+            'id' => 'id-' . uniqid(),
+          ],
+        ];
+
+        return view('pages.about')->with('about', $about)->with('works', $works)->with('skills', $skills);
     }
 
     // Contact page callback.
