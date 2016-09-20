@@ -50,8 +50,14 @@ class PageController extends Controller
           ],
           [
             'colors' => json_encode(['#b78bbe','#1d0f25']),
-            'percent' => 55,
+            'percent' => 70,
             'text' => 'Pr',
+            'id' => 'id-' . uniqid(),
+          ],
+          [
+            'colors' => json_encode(['#d6a8ff','#17002a']),
+            'percent' => 40,
+            'text' => 'Ae',
             'id' => 'id-' . uniqid(),
           ],
         ];
