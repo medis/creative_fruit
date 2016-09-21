@@ -7,6 +7,7 @@ use App\User;
 use Redirect;
 use App\Works;
 use App\Fileentry;
+use App\Variable;
 use Illuminate\Http\Request;
 use App\Http\Requests\WorkFormRequest;
 
@@ -171,5 +172,13 @@ class AdminController extends Controller
             $data['errors'] = 'Invalid operation.';
         }
         return redirect('/')->with($data);
+    }
+
+    public function skills() {
+
+    }
+
+    public function skills_store() {
+
     }
 }

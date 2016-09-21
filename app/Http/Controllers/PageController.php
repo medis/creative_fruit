@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Pages;
 use App\Works;
+use App\Variable;
 use App\Http\Requests\ContactFormRequest;
 
 class PageController extends Controller
@@ -23,45 +24,7 @@ class PageController extends Controller
           return redirect('/')->withErrors('Requested page not found');
         }
 
-        $skills = [
-          [
-            'colors' => json_encode(['#4ac0ed','#1f1b3d']),
-            'percent' => 90,
-            'text' => 'Ps',
-            'id' => 'id-' . uniqid(),
-          ],
-          [
-            'colors' => json_encode(['#ee7a38','#1b0e08']),
-            'percent' => 90,
-            'text' => 'Ai',
-            'id' => 'id-' . uniqid(),
-          ],
-          [
-            'colors' => json_encode(['#e8458f','#200811']),
-            'percent' => 60,
-            'text' => 'Id',
-            'id' => 'id-' . uniqid(),
-          ],
-          [
-            'colors' => json_encode(['#85bb25','#121810']),
-            'percent' => 50,
-            'text' => 'Dw',
-            'id' => 'id-' . uniqid(),
-          ],
-          [
-            'colors' => json_encode(['#b78bbe','#1d0f25']),
-            'percent' => 70,
-            'text' => 'Pr',
-            'id' => 'id-' . uniqid(),
-          ],
-          [
-            'colors' => json_encode(['#d6a8ff','#17002a']),
-            'percent' => 40,
-            'text' => 'Ae',
-            'id' => 'id-' . uniqid(),
-          ],
-        ];
-
+        $skills = json_decode(Variable::where('title', 'skills')->first()->data);
         return view('pages.about')->with('about', $about)->with('works', $works)->with('skills', $skills);
     }
 

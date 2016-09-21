@@ -40,6 +40,10 @@ Route::post('/work/{slug}/edit','AdminController@update');
 Route::get('/work/delete/{id}','AdminController@destroy');
 // Show all works.
 Route::get('/admin/works', ['as' => 'admin_works', 'uses' => 'AdminController@index']);
+// Skills form
+Route::get('/admin/skills', ['as' => 'admin_skills', 'uses' => 'AdminController@skills']);
+// Post skills form
+Route::post('/admin/skills', ['as' => 'admin_skills_store', 'uses' => 'AdminController@skills_store']);
 
 // Get file.
 Route::get('fileentry/get/{filename}', [

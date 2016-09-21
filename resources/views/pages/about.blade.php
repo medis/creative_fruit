@@ -36,7 +36,7 @@
       <div class="skills-wrapper">
         <ul>
           @foreach ($skills as $skill)
-            <li class="skill-chart" id='{{ $skill["id"] }}' data-colors='{{ $skill["colors"] }}' data-percent='{{ $skill["percent"] }}' data-text='{{ $skill["text"] }}'></li>
+            <li class="skill-chart" id='{{ $skill->id }}' data-colors='{{ $skill->colors }}' data-percent='{{ $skill->percent }}' data-text='{{ $skill->text }}'></li>
           @endforeach
         </ul>
       </div>
