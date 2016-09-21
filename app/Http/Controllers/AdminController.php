@@ -175,10 +175,25 @@ class AdminController extends Controller
     }
 
     public function skills() {
+      $skills = json_decode(Variable::where('title', 'skills')->first()->data);
+      foreach ($skills as &$skill) {
+        $skill->colors = json_decode($skill->colors);
+      }
 
+      return view('skills.edit')->with('skills', $skills);
     }
 
-    public function skills_store() {
-
+    public function skills_store(Request $request) {
+      $variable = Variable::where('title', 'skills')->first();
+      $variable_data = json_decode($variable->data);
+      $input = $request->input();
+      for ($i=0; $i<count($input['text']); $i++) {
+        $variable_data[$i]->colors = json_encode([$input['color'][$i][0], $input['color'][$i][1]]);
+        $variable_data[$i]->percent = $input['percent'][$i];
+        $variable_data[$i]->text = $input['text'][$i];
+      }
+      $variable->data = json_encode($variable_data);
+      $variable->save();
+      return redirect(route('admin_skills'))->withMessage('Skills updated!');
     }
 }

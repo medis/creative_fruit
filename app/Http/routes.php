@@ -13,7 +13,6 @@
 // Need to put outside web middleware, otherwise messages won't show...
 Route::get('/contact', ['as' => 'contact', 'uses' => 'PageController@contact']);
 Route::post('/contact', ['as' => 'contact_store', 'uses' => 'PageController@contactSave']);
-Route::get('/chart', ['as' => 'chart', 'uses' => 'PageController@chart']);
 
 Route::group(['middleware' => ['web']], function () {
 	Route::get('/', ['as' => 'works', 'uses' => 'WorkController@index']);
