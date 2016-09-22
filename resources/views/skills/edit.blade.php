@@ -7,6 +7,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Text</th>
                         <th>Percent</th>
                         <th>Colours</th>
@@ -16,15 +17,16 @@
                 <tbody>
                     @foreach ($skills as $i => $skill)
                         <tr>
-                            <td><input required="required" placeholder="Enter text" type="text" name="text[{{$i}}]" value="@if(!old('text[{{$i}}]')){{$skill->text}}@endif{{ old('text[{$i}]') }}" /></td>
-                            <td><input required="required" placeholder="Enter percent" type="number" step="1" name="percent[{{$i}}]" value="@if(!old('percent[{{$i}}]')){{$skill->percent}}@endif{{ old('percent[{$i}]') }}" /></td>
+                            <td><button class="delete" name="delete"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></td>
+                            <td><input class="text" required="required" placeholder="Enter text" type="text" name="text[{{$i}}]" value="@if(!old('text[{{$i}}]')){{$skill->text}}@endif{{ old('text[{$i}]') }}" /></td>
+                            <td><input class="percent" required="required" placeholder="Enter percent" type="number" step="1" name="percent[{{$i}}]" value="@if(!old('percent[{{$i}}]')){{$skill->percent}}@endif{{ old('percent[{$i}]') }}" /></td>
                             <td>
                                 <label for="color-{{$i}}0">
-                                    <input id="color-{{$i}}0" required="required" placeholder="Enter border colour" type="color" name="color[{{$i}}][0]" value="@if(!old('color[{$i}][0]')){{$skill->colors[0]}}@endif{{ old('color[{$i}][0]') }}" />
+                                    <input class="color-0" id="color-{{$i}}0" required="required" placeholder="Enter border colour" type="color" name="color[{{$i}}][0]" value="@if(!old('color[{$i}][0]')){{$skill->colors[0]}}@endif{{ old('color[{$i}][0]') }}" />
                                     Border colour
                                 </label>
                                 <label for="color-{{$i}}1">
-                                    <input id="color-{{$i}}1" required="required" placeholder="Enter background colour" type="color" name="color[{{$i}}][1]" value="@if(!old('color[{$i}][1]')){{$skill->colors[1]}}@endif{{ old('color[{$i}][1]') }}" />
+                                    <input class="color-1" id="color-{{$i}}1" required="required" placeholder="Enter background colour" type="color" name="color[{{$i}}][1]" value="@if(!old('color[{$i}][1]')){{$skill->colors[1]}}@endif{{ old('color[{$i}][1]') }}" />
                                     Background colour
                                 </label>
                             </td>
@@ -32,6 +34,7 @@
                   @endforeach
                 </tbody>
             </table>
+            <button name="add-skill"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add skill</button>
             <input type="submit" name='update' class="button button-update" value="Update" />
         </form>
     @endif

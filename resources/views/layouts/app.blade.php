@@ -28,7 +28,7 @@
                 <ul>
                     <li><a href='/work/new' title="Create new work">Create new work</a></li>
                     <li><a href="{{ route('admin_works') }}" title="Administer all works">Administer works</a></li>
-                    <li><a href="{{ route('admin_skills') }}" title="Administrate skills">Administrate skills</a></li>
+                    <li><a href="{{ route('admin_skills') }}" title="Administer skills">Administer skills</a></li>
                 </ul>
             </div>
         @endif

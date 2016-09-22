@@ -22,7 +22,8 @@ elixir(function(mix) {
     'form_visibility.js',
     'mobile_menu.js',
     'animations.js',
-    'skills.js'
+    'skills.js',
+    'skills_admin.js'
   ]);
   mix.version([
     'css/app.css',

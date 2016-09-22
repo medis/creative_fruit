@@ -185,12 +185,14 @@ class AdminController extends Controller
 
     public function skills_store(Request $request) {
       $variable = Variable::where('title', 'skills')->first();
-      $variable_data = json_decode($variable->data);
+      $variable_data = [];
       $input = $request->input();
       for ($i=0; $i<count($input['text']); $i++) {
+        $variable_data[$i] = new \stdClass;
         $variable_data[$i]->colors = json_encode([$input['color'][$i][0], $input['color'][$i][1]]);
         $variable_data[$i]->percent = $input['percent'][$i];
         $variable_data[$i]->text = $input['text'][$i];
+        $variable_data[$i]->id = 'id-' . uniqid();
       }
       $variable->data = json_encode($variable_data);
       $variable->save();
