@@ -47,4 +47,21 @@
     $elem.find('.color-0').attr('name', 'color[' + number + '][0]');
     $elem.find('.color-1').attr('name', 'color[' + number + '][1]');
   }
+
+  // Return a helper with preserved width of cells
+  var fixHelper = function(e, ui) {
+    ui.children().each(function() {
+      $(this).width($(this).width());
+    });
+    return ui;
+  };
+
+  // Draggable.
+  $('table tbody').sortable({
+    helper: fixHelper,
+    handle: '.handle',
+    stop: function (event, ui) {
+      update_row_numbers();
+    }
+  }).disableSelection();
 })(jQuery);

@@ -8,6 +8,7 @@
                 <thead>
                     <tr>
                         <th></th>
+                        <th></th>
                         <th>Text</th>
                         <th>Percent</th>
                         <th>Colours</th>
@@ -17,6 +18,7 @@
                 <tbody>
                     @foreach ($skills as $i => $skill)
                         <tr>
+                            <td><i class="fa fa-hand-rock-o handle" aria-hidden="true"></i></td>
                             <td><button class="delete" name="delete"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></td>
                             <td><input class="text" required="required" placeholder="Enter text" type="text" name="text[{{$i}}]" value="@if(!old('text[{{$i}}]')){{$skill->text}}@endif{{ old('text[{$i}]') }}" /></td>
                             <td><input class="percent" required="required" placeholder="Enter percent" type="number" step="1" name="percent[{{$i}}]" value="@if(!old('percent[{{$i}}]')){{$skill->percent}}@endif{{ old('percent[{$i}]') }}" /></td>
@@ -38,4 +40,8 @@
             <input type="submit" name='update' class="button button-update" value="Update" />
         </form>
     @endif
+@endsection
+
+@section('assets')
+  <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 @endsection
